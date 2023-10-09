@@ -10,46 +10,61 @@ public class Supermarkt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String naam;
-    String url;
-    @JsonProperty("merk_naam")
-    String merkNaam;
-    @JsonProperty("logo_url")
-    String logoUrl;
+    String n;
+    String u;
+    String c;
+    String i;
+    @OneToMany(mappedBy = "supermarkt", cascade = CascadeType.ALL)
+    List<Product> d;
 
-    public int getId() {
-        return id;
+    public String getN() {
+        return n;
     }
 
-    public String getNaam() {
-        return naam;
+    @Override
+    public String toString() {
+        return "Supermarkt{" +
+                "id=" + id +
+                ", n='" + n + '\'' +
+                ", u='" + u + '\'' +
+                ", c='" + c + '\'' +
+                ", i='" + i + '\'' +
+                '}';
     }
 
-    public void setNaam(String naam) {
-        this.naam = naam;
+    public void setN(String n) {
+        this.n = n;
     }
 
-    public String getUrl() {
-        return url;
+    public String getU() {
+        return u;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setU(String u) {
+        this.u = u;
     }
 
-    public String getMerkNaam() {
-        return merkNaam;
+    public String getC() {
+        return c;
     }
 
-    public void setMerkNaam(String merkNaam) {
-        this.merkNaam = merkNaam;
+    public void setC(String c) {
+        this.c = c;
     }
 
-    public String getLogoUrl() {
-        return logoUrl;
+    public String getI() {
+        return i;
     }
 
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
+    public void setI(String i) {
+        this.i = i;
+    }
+
+    public List<Product> getD() {
+        return d;
+    }
+
+    public void setD(List<Product> d) {
+        this.d = d;
     }
 }
