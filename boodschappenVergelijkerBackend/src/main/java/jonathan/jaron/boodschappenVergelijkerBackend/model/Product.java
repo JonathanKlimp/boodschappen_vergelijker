@@ -8,12 +8,16 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String n;
-    String l;
-    double p;
-    String s;
     @ManyToOne
     Supermarkt supermarkt;
+    String naam;
+    String url;
+    double prijs;
+    String inhoud;
+
+    public int getId() {
+        return id;
+    }
 
     public Supermarkt getSupermarkt() {
         return supermarkt;
@@ -23,54 +27,35 @@ public class Product {
         this.supermarkt = supermarkt;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", n='" + n + '\'' +
-                ", l='" + l + '\'' +
-                ", p=" + p +
-                ", s='" + s + '\'' +
-                '}';
+    public String getNaam() {
+        return naam;
     }
 
-    public int getId() {
-        return id;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getUrl() {
+        return url;
     }
 
-    public String getN() {
-        return n;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public void setN(String n) {
-        this.n = n;
+    public double getPrijs() {
+        return prijs;
     }
 
-    public String getL() {
-        return l;
+    public void setPrijs(double prijs) {
+        this.prijs = prijs;
     }
 
-    public void setL(String l) {
-        this.l = l;
+    public String getInhoud() {
+        return inhoud;
     }
 
-    public double getP() {
-        return p;
-    }
-
-    public void setP(double p) {
-        this.p = p;
-    }
-
-    public String getS() {
-        return s;
-    }
-
-    public void setS(String s) {
-        this.s = s;
+    public void setInhoud(String inhoud) {
+        this.inhoud = inhoud;
     }
 }
