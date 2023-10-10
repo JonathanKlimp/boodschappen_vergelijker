@@ -1,17 +1,25 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jonathan.jaron.boodschappenVergelijkerBackend.repository.ProductRepository;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String n;
-    String l;
-    double p;
-    String s;
+
+    @JsonProperty("n")
+    String naam;
+
+    @JsonProperty("l")
+    String url;
+
+    @JsonProperty("p")
+    double prijs;
+
+    @JsonProperty("s")
+    String inhoud;
     @ManyToOne
     Supermarkt supermarkt;
 
@@ -27,10 +35,10 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", n='" + n + '\'' +
-                ", l='" + l + '\'' +
-                ", p=" + p +
-                ", s='" + s + '\'' +
+                ", n='" + naam + '\'' +
+                ", l='" + url + '\'' +
+                ", p=" + prijs +
+                ", s='" + inhoud + '\'' +
                 '}';
     }
 
@@ -38,39 +46,35 @@ public class Product {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getNaam() {
+        return naam;
     }
 
-    public String getN() {
-        return n;
+    public void setNaam(String n) {
+        this.naam = n;
     }
 
-    public void setN(String n) {
-        this.n = n;
+    public String getUrl() {
+        return url;
     }
 
-    public String getL() {
-        return l;
+    public void setUrl(String l) {
+        this.url = l;
     }
 
-    public void setL(String l) {
-        this.l = l;
+    public double getPrijs() {
+        return prijs;
     }
 
-    public double getP() {
-        return p;
+    public void setPrijs(double p) {
+        this.prijs = p;
     }
 
-    public void setP(double p) {
-        this.p = p;
+    public String getInhoud() {
+        return inhoud;
     }
 
-    public String getS() {
-        return s;
-    }
-
-    public void setS(String s) {
-        this.s = s;
+    public void setInhoud(String s) {
+        this.inhoud = s;
     }
 }

@@ -10,61 +10,70 @@ public class Supermarkt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String n;
-    String u;
-    String c;
-    String i;
-    @OneToMany(mappedBy = "supermarkt", cascade = CascadeType.ALL)
-    List<Product> d;
 
-    public String getN() {
-        return n;
+    @JsonProperty("n")
+    String naam;
+
+    @JsonProperty("u")
+    String url;
+
+    @JsonProperty("c")
+    String merkNaam;
+
+    @JsonProperty("i")
+    String logo;
+    @OneToMany(mappedBy = "supermarkt", cascade = CascadeType.ALL)
+    @JsonProperty("d")
+    List<Product> producten;
+
+    public String getNaam() {
+        return naam;
     }
 
     @Override
     public String toString() {
         return "Supermarkt{" +
                 "id=" + id +
-                ", n='" + n + '\'' +
-                ", u='" + u + '\'' +
-                ", c='" + c + '\'' +
-                ", i='" + i + '\'' +
+                ", n='" + naam + '\'' +
+                ", u='" + url + '\'' +
+                ", c='" + merkNaam + '\'' +
+                ", i='" + logo + '\'' +
                 '}';
     }
 
-    public void setN(String n) {
-        this.n = n;
+    public void setNaam(String n) {
+        this.naam = n;
     }
 
-    public String getU() {
-        return u;
+    public String getUrl() {
+        return url;
     }
 
-    public void setU(String u) {
-        this.u = u;
+    public void setUrl(String u) {
+        this.url = u;
     }
 
-    public String getC() {
-        return c;
+    public String getMerkNaam() {
+        return merkNaam;
     }
 
-    public void setC(String c) {
-        this.c = c;
+    public void setMerkNaam(String c) {
+        this.merkNaam = c;
     }
 
-    public String getI() {
-        return i;
+    public String getLogo() {
+        return logo;
     }
 
-    public void setI(String i) {
-        this.i = i;
+    public void setLogo(String i) {
+        this.logo = i;
     }
 
-    public List<Product> getD() {
-        return d;
+    public List<Product> getProducten() {
+        return producten;
     }
 
-    public void setD(List<Product> d) {
-        this.d = d;
+    public void setProducten(List<Product> d) {
+        this.producten = d;
     }
 }

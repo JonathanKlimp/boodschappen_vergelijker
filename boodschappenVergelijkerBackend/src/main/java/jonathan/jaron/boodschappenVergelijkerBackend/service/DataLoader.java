@@ -38,7 +38,7 @@ public class DataLoader implements CommandLineRunner {
                     selSupermarkt = supermarkt;
                     supermarktRepository.save(supermarkt);
 
-                    for (Product product : supermarkt.getD()) {
+                    for (Product product : supermarkt.getProducten()) {
                         selProduct = product;
                         productRepository.save(product);
                     }
