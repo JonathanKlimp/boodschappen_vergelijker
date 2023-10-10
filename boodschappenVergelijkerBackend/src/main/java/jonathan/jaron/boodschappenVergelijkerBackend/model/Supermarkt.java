@@ -41,39 +41,43 @@ public class Supermarkt {
                 '}';
     }
 
-    public void setNaam(String n) {
-        this.naam = n;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String u) {
-        this.url = u;
+    public int getId() {
+        return id;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getMerkNaam() {
         return merkNaam;
     }
 
-    public void setMerkNaam(String c) {
-        this.merkNaam = c;
+    public void setMerkNaam(String merkNaam) {
+        this.merkNaam = merkNaam;
     }
 
     public String getLogo() {
         return logo;
     }
 
-    public void setLogo(String i) {
-        this.logo = i;
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public List<Product> getProducten() {
         return producten;
     }
 
-    public void setProducten(List<Product> d) {
-        this.producten = d;
+    public void setProducten(List<Product> producten) {
+        this.producten = producten;
     }
 }

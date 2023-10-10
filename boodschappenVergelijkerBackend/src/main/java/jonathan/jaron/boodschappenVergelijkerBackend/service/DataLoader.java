@@ -31,24 +31,14 @@ public class DataLoader implements CommandLineRunner {
             ObjectMapper objectMapper = new ObjectMapper();
             List<Supermarkt> supermarkten = objectMapper.readValue(new File("src/main/resources/data/supermarkets.json"), new TypeReference<List<Supermarkt>>() {
             });
-            Supermarkt selSupermarkt = null;
-            Product selProduct = null;
-            try {
-                for (Supermarkt supermarkt : supermarkten) {
-                    selSupermarkt = supermarkt;
-                    supermarktRepository.save(supermarkt);
-
-                    for (Product product : supermarkt.getProducten()) {
-                        selProduct = product;
-                        productRepository.save(product);
-                    }
-
+            for (Supermarkt supermarkt : supermarkten) {
+                for (Product product : supermarkt.getProducten()) {
+                    product.setSupermarkt(supermarkt);
                 }
-            } catch (Exception e) {
-                System.out.println(selSupermarkt + " " + selProduct);
-
+                supermarktRepository.save(supermarkt);
+                productRepository.saveAll(supermarkt.getProducten());
             }
-
         }
     }
 }
+
