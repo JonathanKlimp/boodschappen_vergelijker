@@ -1,8 +1,6 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.controller;
 
-import jonathan.jaron.boodschappenVergelijkerBackend.model.Product;
 import jonathan.jaron.boodschappenVergelijkerBackend.model.Supermarkt;
-import jonathan.jaron.boodschappenVergelijkerBackend.repository.ProductRepository;
 import jonathan.jaron.boodschappenVergelijkerBackend.repository.SupermarktRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
