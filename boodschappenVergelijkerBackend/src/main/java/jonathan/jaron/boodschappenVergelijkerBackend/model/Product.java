@@ -23,6 +23,7 @@ public class Product {
 
     @Column(name = "image_url", length = 255)
     String imageUrl;
+  
     @ManyToOne
     Supermarkt supermarkt;
 

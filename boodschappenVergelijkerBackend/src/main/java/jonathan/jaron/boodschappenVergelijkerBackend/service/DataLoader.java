@@ -33,7 +33,21 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (productRepository.count() == 0 || supermarktRepository.count() == 0) {
+
             processingService.processAndSaveData(new File(JSON_FILE_PATH));
+
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            List<Supermarkt> supermarkten = objectMapper.readValue(new File("src/main/resources/data/supermarkets.json"), new TypeReference<List<Supermarkt>>() {
+            });
+            for (Supermarkt supermarkt : supermarkten) {
+                for (Product product : supermarkt.getProducten()) {
+                    product.setSupermarkt(supermarkt);
+                }
+                supermarktRepository.save(supermarkt);
+                productRepository.saveAll(supermarkt.getProducten());
+            }
+
         }
         //imageGetterService.getImages();
     }
@@ -56,3 +70,4 @@ public class DataLoader implements CommandLineRunner {
 //        }
 //    }
 }
+
