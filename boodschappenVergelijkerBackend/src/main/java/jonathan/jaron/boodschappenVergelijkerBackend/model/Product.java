@@ -1,23 +1,30 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jonathan.jaron.boodschappenVergelijkerBackend.repository.ProductRepository;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    @ManyToOne
-    Supermarkt supermarkt;
+
+    @JsonProperty("n")
     String naam;
+
+    @JsonProperty("l")
     String url;
+
+    @JsonProperty("p")
     double prijs;
+
+    @JsonProperty("s")
     String inhoud;
 
-    public int getId() {
-        return id;
-    }
+    @Column(name = "image_url", length = 255)
+    String imageUrl;
+    @ManyToOne
+    Supermarkt supermarkt;
 
     public Supermarkt getSupermarkt() {
         return supermarkt;
@@ -27,35 +34,58 @@ public class Product {
         this.supermarkt = supermarkt;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", n='" + naam + '\'' +
+                ", l='" + url + '\'' +
+                ", p=" + prijs +
+                ", s='" + inhoud + '\'' +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getNaam() {
         return naam;
     }
 
-    public void setNaam(String naam) {
-        this.naam = naam;
+    public void setNaam(String n) {
+        this.naam = n;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrl(String l) {
+        this.url = l;
     }
 
     public double getPrijs() {
         return prijs;
     }
 
-    public void setPrijs(double prijs) {
-        this.prijs = prijs;
+    public void setPrijs(double p) {
+        this.prijs = p;
     }
 
     public String getInhoud() {
         return inhoud;
     }
 
-    public void setInhoud(String inhoud) {
-        this.inhoud = inhoud;
+    public void setInhoud(String s) {
+        this.inhoud = s;
     }
 }
