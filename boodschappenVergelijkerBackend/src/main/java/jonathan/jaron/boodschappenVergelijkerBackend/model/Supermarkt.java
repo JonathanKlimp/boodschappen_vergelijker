@@ -1,5 +1,6 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
@@ -22,7 +23,7 @@ public class Supermarkt {
 
     @JsonProperty("i")
     String logo;
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "supermarkt", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 
     @JsonProperty("d")

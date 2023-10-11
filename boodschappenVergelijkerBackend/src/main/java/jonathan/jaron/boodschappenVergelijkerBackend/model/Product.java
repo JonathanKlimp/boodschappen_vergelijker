@@ -1,5 +1,6 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
@@ -23,7 +24,7 @@ public class Product {
 
     @Column(name = "image_url", length = 255)
     String imageUrl;
-  
+    @JsonBackReference
     @ManyToOne
     Supermarkt supermarkt;
 

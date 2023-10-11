@@ -40,6 +40,7 @@ public class DataProcessingService {
 
             productRepository.saveAll(supermarkt.getProducten());
         }
+        System.out.println("Klaar met opslaan");
     }
 
     public void processAndUpdateData(File jsonData) throws IOException {
