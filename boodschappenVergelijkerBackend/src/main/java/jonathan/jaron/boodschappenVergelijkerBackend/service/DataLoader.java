@@ -1,5 +1,9 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jonathan.jaron.boodschappenVergelijkerBackend.model.Product;
+import jonathan.jaron.boodschappenVergelijkerBackend.model.Supermarkt;
 import jonathan.jaron.boodschappenVergelijkerBackend.repository.ProductRepository;
 import jonathan.jaron.boodschappenVergelijkerBackend.repository.SupermarktRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.util.List;
 
 @Component
 public class DataLoader implements CommandLineRunner {
