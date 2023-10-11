@@ -20,6 +20,10 @@ public class Product {
 
     @JsonProperty("s")
     String inhoud;
+
+    @Column(name = "image_url", length = 255)
+    String imageUrl;
+  
     @ManyToOne
     Supermarkt supermarkt;
 
@@ -29,6 +33,14 @@ public class Product {
 
     public void setSupermarkt(Supermarkt supermarkt) {
         this.supermarkt = supermarkt;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
