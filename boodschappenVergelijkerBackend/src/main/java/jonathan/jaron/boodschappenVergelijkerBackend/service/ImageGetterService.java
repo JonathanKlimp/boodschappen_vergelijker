@@ -11,6 +11,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpStatusCodeException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -38,21 +39,37 @@ public class ImageGetterService {
         for (Supermarkt supermarkt: supermarktList) {
             String rootUrl = supermarkt.getUrl();
             List<Product> productList = supermarkt.getProducten();
-
+            int productListSize = productList.size();
+            int count = 0;
             for (Product product: productList) {
+
+                System.out.println("url zoeken voor product: " + product.getNaam() + "supermarkt: " + supermarkt.getNaam());
                 String productUrl = product.getUrl();
                 String imagePageUrl = rootUrl + productUrl;
 
-                System.out.println("root url: " + imagePageUrl);
+//                System.out.println("root url: " + imagePageUrl);
                 try {
                     String htmlString = getHtmlString(imagePageUrl);
 //                    System.out.println( "htmlString: " + htmlString);
-                    String imageUrls = htmlService.extractImageUrls(htmlString);
-                    System.out.println("imageUrls: " +  imageUrls);
+                    String imageUrl = htmlService.extractImageUrls(htmlString);
+//                    System.out.println("imageUrl: " +  imageUrl);
+//                    updateNullImageUrls(imageUrl);
+                    product.setImageUrl(imageUrl);
+                } catch (HttpStatusCodeException e) {
+                    if (e.getStatusCode().value() == 404) {
+                        // Handle the 404 error and return a default value
+                        product.setImageUrl("Kon geen pagina vinden");
+                    }
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    product.setImageUrl("Kon geen pagina vinden");
                 }
+                System.out.println("nog " + (productListSize - count) + "producten te gaan");
+                count++;
+                productRepository.save(product);
             }
+            System.out.println("Supermarkt is klaar "+ supermarkt.getNaam());
+//            productRepository.saveAll(productList);
+
         }
     }
 
@@ -61,7 +78,6 @@ public class ImageGetterService {
             HttpGet httpGet = new HttpGet(imageUrl);
             try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
                 if (response.getStatusLine().getStatusCode() == 200) {
-
                     return EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
                 } else {
                     throw new IOException("Failed to get url. Status code: " + response.getStatusLine().getStatusCode());

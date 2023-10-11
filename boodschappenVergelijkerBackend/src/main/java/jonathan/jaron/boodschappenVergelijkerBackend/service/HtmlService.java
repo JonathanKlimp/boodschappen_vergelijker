@@ -29,7 +29,7 @@ public class HtmlService {
 
 //        for (Element imgElement : imgElements) {
             // Get the "src" attribute of each <img> element
-        System.out.println(imgElement);
+//        System.out.println(imgElement);
             return imgElement.attr("src");
 //            imageUrls.add(imageUrl);
 //        }
