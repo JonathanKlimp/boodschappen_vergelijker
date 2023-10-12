@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ProductController {
@@ -18,4 +19,10 @@ public class ProductController {
     Product save(@RequestBody Product product){ return productRepository.save(product);}
     @GetMapping("/product")
     List<Product> findAll(){return productRepository.findAll();}
+
+    @PostMapping("/zoek")
+    List<Product> findByNaamLike(@RequestBody String naam){
+        List<Product> result = productRepository.findByNaamLike("%"+naam+"%");
+        return (result);
+    }
 }

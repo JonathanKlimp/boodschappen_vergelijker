@@ -19,6 +19,7 @@ import { ResultPageComponent } from './result-page/result-page.component';
 import { ProductComponent } from './result-page/product/product.component';
 import { ShoppingListComponent } from './result-page/shopping-list/shopping-list.component';
 import { GebruikerComponent } from './gebruiker/gebruiker.component';
+import { SupermarktComponent } from './result-page/supermarkt/supermarkt.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { GebruikerComponent } from './gebruiker/gebruiker.component';
     ProductComponent,
     ShoppingListComponent,
     GebruikerComponent,
-
+    SupermarktComponent,
   ],
   imports: [
     BrowserModule,
