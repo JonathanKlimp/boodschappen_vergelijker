@@ -25,7 +25,6 @@ public class Supermarkt {
     String logo;
     @JsonManagedReference
     @OneToMany(mappedBy = "supermarkt", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-
     @JsonProperty("d")
     List<Product> producten;
 

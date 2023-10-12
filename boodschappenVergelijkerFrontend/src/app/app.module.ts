@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { ProductComponent } from './result-page/product/product.component';
 import { ShoppingListComponent } from './result-page/shopping-list/shopping-list.component';
+import { GebruikerComponent } from './gebruiker/gebruiker.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ShoppingListComponent } from './result-page/shopping-list/shopping-list
     ResultPageComponent,
     ProductComponent,
     ShoppingListComponent,
+    GebruikerComponent,
 
   ],
   imports: [
