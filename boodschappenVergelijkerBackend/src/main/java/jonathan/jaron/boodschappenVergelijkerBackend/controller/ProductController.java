@@ -19,11 +19,7 @@ public class ProductController {
     @CrossOrigin(origins = "*")
     @PostMapping("/zoek")
     List<Product> findByNaamLike(@RequestBody String naam){
-        System.out.println("Naam:" + naam);
         List<Product> result = productRepository.findProductByNaam("%"+naam+"%");
-        for (Product p : result) {
-            System.out.println(p.getSupermarkt().getNaam());
-        }
         System.out.println(result);
         return (result);
     }

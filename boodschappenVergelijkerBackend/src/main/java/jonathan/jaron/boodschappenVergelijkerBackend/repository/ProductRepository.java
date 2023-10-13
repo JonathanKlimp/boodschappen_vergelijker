@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ProductRepository  extends JpaRepository<Product,Integer> {
-    @Query("SELECT p FROM Product p JOIN p.supermarkt s WHERE p.naam LIKE :naam")
+    @Query("SELECT p FROM Product p LEFT JOIN p.supermarkt s WHERE p.naam LIKE '%coca cola%'")
     List<Product> findProductByNaam(@Param("naam") String naam);
 
 }

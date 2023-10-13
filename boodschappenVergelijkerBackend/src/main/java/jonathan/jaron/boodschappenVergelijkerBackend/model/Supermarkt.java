@@ -1,10 +1,9 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.List;
 
@@ -25,19 +24,18 @@ public class Supermarkt {
 
 
     String logo;
-    @JsonManagedReference
+
+
+    //Nodig voor het vullen
+    //@JsonManagedReference(value = "producten")
+    //Nodig voor het uitlezen
+    @JsonBackReference
     @OneToMany(mappedBy = "supermarkt", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-
-
     List<Product> producten;
 
+    @JsonGetter("naam")
     public String getNaam() {
         return naam;
-    }
-
-    @Override
-    public String toString() {
-        return "Supermarkt{" + "id=" + id + ", n='" + naam + '\'' + ", u='" + url + '\'' + ", c='" + merkNaam + '\'' + ", i='" + logo + '\'' + '}';
     }
 
     @JsonSetter("n")
@@ -82,7 +80,7 @@ public class Supermarkt {
         this.logo = logo;
     }
 
-    @JsonGetter("producten")
+    @JsonGetter("d")
     public List<Product> getProducten() {
         return producten;
     }
@@ -90,5 +88,10 @@ public class Supermarkt {
     @JsonSetter("d")
     public void setProducten(List<Product> producten) {
         this.producten = producten;
+    }
+
+    @Override
+    public String toString() {
+        return "Supermarkt: " + "id=" + id + ", naam='" + naam + '\'' + ", url='" + url + '\'' + ", merkNaam='" + merkNaam + '\'' + ", logo='" + logo + '\'' + '}';
     }
 }
