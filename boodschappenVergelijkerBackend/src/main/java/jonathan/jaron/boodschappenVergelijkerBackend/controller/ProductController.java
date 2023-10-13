@@ -3,10 +3,7 @@ package jonathan.jaron.boodschappenVergelijkerBackend.controller;
 import jonathan.jaron.boodschappenVergelijkerBackend.model.Product;
 import jonathan.jaron.boodschappenVergelijkerBackend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -19,10 +16,15 @@ public class ProductController {
     Product save(@RequestBody Product product){ return productRepository.save(product);}
     @GetMapping("/product")
     List<Product> findAll(){return productRepository.findAll();}
-
+    @CrossOrigin(origins = "*")
     @PostMapping("/zoek")
     List<Product> findByNaamLike(@RequestBody String naam){
-        List<Product> result = productRepository.findByNaamLike("%"+naam+"%");
+        System.out.println("Naam:" + naam);
+        List<Product> result = productRepository.findProductByNaam("%"+naam+"%");
+        for (Product p : result) {
+            System.out.println(p.getSupermarkt().getNaam());
+        }
+        System.out.println(result);
         return (result);
     }
 }
