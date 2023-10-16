@@ -6,6 +6,7 @@ import { ResultPageComponent } from './result-page/result-page.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingComponent },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'results', component: ResultPageComponent }
 ];

@@ -19,7 +19,7 @@ import { ResultPageComponent } from './result-page/result-page.component';
 import { ProductComponent } from './result-page/product/product.component';
 import { ShoppingListComponent } from './result-page/shopping-list/shopping-list.component';
 import { SupermarktComponent } from './result-page/supermarkt/supermarkt.component';
-
+import { HttpClientModule } from '@angular/common/http'; import { SearchService } from './landing/search/search.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,8 @@ import { SupermarktComponent } from './result-page/supermarkt/supermarkt.compone
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent, SearchComponent, TitleComponent, LogoComponent, LoginComponent]
