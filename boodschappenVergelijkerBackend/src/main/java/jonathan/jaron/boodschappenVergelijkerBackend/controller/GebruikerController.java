@@ -2,7 +2,6 @@ package jonathan.jaron.boodschappenVergelijkerBackend.controller;
 
 import jonathan.jaron.boodschappenVergelijkerBackend.model.Gebruiker;
 import jonathan.jaron.boodschappenVergelijkerBackend.repository.GebruikerRepository;
-import jonathan.jaron.boodschappenVergelijkerBackend.service.WachtwoordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,26 +21,19 @@ public class GebruikerController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    @PostMapping("/gebruiker")
-    Gebruiker save(@RequestBody Gebruiker gebruiker){ return gebruikerRepository.save(gebruiker);}
+//    @PostMapping("/gebruiker")
+//    Gebruiker save(@RequestBody Gebruiker gebruiker){ return gebruikerRepository.save(gebruiker);}
     @GetMapping("/gebruiker")
     List<Gebruiker> findAll(){return gebruikerRepository.findAll();}
 
-    @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody Gebruiker gebruiker) {
+    @PostMapping("/registreer")
+    public Gebruiker save(@RequestBody Gebruiker gebruiker) {
+        System.out.println("in registreer user");
+        System.out.println(gebruiker.getWachtwoord());
+        gebruiker.setWachtwoord(passwordEncoder.encode(gebruiker.getWachtwoord()));
+        System.out.println(gebruiker.getWachtwoord());
 
-        passwordEncoder.encode("j");
-        gebruiker.getWachtwoord();
-//        User user = new User();
-//        user.setFirstName(accountDto.getFirstName());
-//        user.setLastName(accountDto.getLastName());
-//
-//        user.setPassword(passwordEncoder.encode(accountDto.getPassword()));
-//
-//        user.setEmail(accountDto.getEmail());
-//        user.setRole(new Role(Integer.valueOf(1), user));
-//        return repository.save(user);
-        return null;
+        return gebruikerRepository.save(gebruiker);
     }
 
     @PostMapping("/login")
