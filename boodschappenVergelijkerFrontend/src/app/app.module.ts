@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { ProductComponent } from './result-page/product/product.component';
 import { ShoppingListComponent } from './result-page/shopping-list/shopping-list.component';
+import { GebruikerComponent } from './gebruiker/gebruiker.component';
 import { SupermarktComponent } from './result-page/supermarkt/supermarkt.component';
 import { HttpClientModule } from '@angular/common/http'; import { SearchService } from './landing/search/search.service';
 @NgModule({
@@ -34,8 +35,8 @@ import { HttpClientModule } from '@angular/common/http'; import { SearchService 
     ResultPageComponent,
     ProductComponent,
     ShoppingListComponent,
+    GebruikerComponent,
     SupermarktComponent,
-
   ],
   imports: [
     BrowserModule,
