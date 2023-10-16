@@ -1,13 +1,16 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import java.util.List;
 
-public class Supermarkt {
+@Entity
+@Table(name = "supermarkt")
+public class SupermarktDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
@@ -15,8 +18,10 @@ public class Supermarkt {
     String url;
     String merkNaam;
     String logo;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    List<Product> producten;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "supermarkt", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<ProductDto> producten;
 
     @JsonGetter("naam")
     public String getNaam() {
@@ -64,12 +69,12 @@ public class Supermarkt {
     }
 
     @JsonGetter("d")
-    public List<Product> getProducten() {
+    public List<ProductDto> getProducten() {
         return producten;
     }
 
     @JsonSetter("d")
-    public void setProducten(List<Product> producten) {
+    public void setProducten(List<ProductDto> producten) {
         this.producten = producten;
     }
 

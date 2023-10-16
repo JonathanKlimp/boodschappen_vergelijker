@@ -1,10 +1,16 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import jakarta.persistence.*;
 import jonathan.jaron.boodschappenVergelijkerBackend.tools.ConsoleColors;
 
-
-public class Product {
+@Entity
+@Table(name = "product")
+public class ProductDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     String naam;
@@ -12,17 +18,20 @@ public class Product {
     double prijs;
     String inhoud;
 
+    @Column(name = "image_url", length = 255)
     String imageUrl;
 
-    @JsonIgnore
-    Supermarkt supermarkt;
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "supermarkt_id")
+    SupermarktDto supermarkt;
 
     @JsonGetter("supermarkt")
-    public Supermarkt getSupermarkt() {
+    public SupermarktDto getSupermarkt() {
         return supermarkt;
     }
 
-    public void setSupermarkt(Supermarkt supermarkt) {
+    public void setSupermarkt(SupermarktDto supermarkt) {
         this.supermarkt = supermarkt;
     }
 
@@ -38,6 +47,10 @@ public class Product {
     @JsonGetter("id")
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @JsonGetter("naam")
@@ -100,9 +113,5 @@ public class Product {
                         "\n --------------- \n"
                         + ConsoleColors.ANSI_RESET;
 
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
