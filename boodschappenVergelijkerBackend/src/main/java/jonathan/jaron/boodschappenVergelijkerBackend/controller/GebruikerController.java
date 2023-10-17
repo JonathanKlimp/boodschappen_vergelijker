@@ -1,17 +1,16 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.controller;
 
+import jakarta.servlet.http.HttpSession;
 import jonathan.jaron.boodschappenVergelijkerBackend.mapper.ProductMapper;
 import jonathan.jaron.boodschappenVergelijkerBackend.model.Gebruiker;
 import jonathan.jaron.boodschappenVergelijkerBackend.model.Product;
 import jonathan.jaron.boodschappenVergelijkerBackend.model.ProductDto;
 import jonathan.jaron.boodschappenVergelijkerBackend.repository.GebruikerRepository;
+import jonathan.jaron.boodschappenVergelijkerBackend.repository.ProductRepository;
 import jonathan.jaron.boodschappenVergelijkerBackend.service.GebruikerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +22,9 @@ public class GebruikerController {
 
     @Autowired
     GebruikerRepository gebruikerRepository;
+
+    @Autowired
+    ProductRepository productRepository;
 
     @GetMapping("/gebruiker")
     List<Gebruiker> findAll(){
@@ -44,16 +46,15 @@ public class GebruikerController {
     @PostMapping("/toevoegen")
     public Gebruiker add(@RequestBody Gebruiker gebruiker) {
         Gebruiker gebruiker1 = gebruikerRepository.findByGebruikersnaam(gebruiker.getGebruikersnaam());
-        
-        gebruiker1.addProduct(ProductMapper.toListProductDto(gebruiker.getProducten()));
+
+        //gebruiker1.addProduct();
 
         return gebruiker1;
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody Gebruiker gebruiker) {
-        // Implement user authentication logic, validate credentials
-        // Return a success or error response, possibly with a JWT token for authentication
-        return null;
+    @RequestMapping("/login")
+    public String login(HttpSession session, @RequestBody Gebruiker gebruiker) {
+        session.setAttribute(gebruiker.getGebruikersnaam(), gebruiker);
+        return "You have logged in successfully"; // you can also redirect instead, do as you wish
     }
 }

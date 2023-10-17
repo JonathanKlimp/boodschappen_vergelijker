@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'results', component: ResultPageComponent }
+  { path: 'results/:zoekterm', component: ResultPageComponent }
 ];
 
 @NgModule({

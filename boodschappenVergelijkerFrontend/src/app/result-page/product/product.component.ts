@@ -8,8 +8,6 @@ import { ProductService } from './product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
-
   constructor(private searchService: SearchService, private productService: ProductService) {
     console.log('aangemaakt')
   }

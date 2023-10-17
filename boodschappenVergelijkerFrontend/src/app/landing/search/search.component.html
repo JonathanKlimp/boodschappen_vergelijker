@@ -1,18 +1,7 @@
-<form (submit)="opSubmit()">
+<form>
     <mat-form-field style="width:50vw">
         <mat-label>Zoek een product</mat-label>
         <input matInput placeholder="Bijv. Dr Oekter Pizza" [(ngModel)]="zoekterm" name="zoekterm">
-        <button type="submit">Zoek</button>
+        <button [routerLink]="['/results', zoekterm]" type="submit">Zoek</button>
     </mat-form-field>
 </form>
-
-<p>{{zoekterm}}</p>
-<ul>
-    <li *ngFor="let product of resultaten">{{product.naam}}>
-        <ul>
-            <li> {{product.prijs}}</li>
-            <li> {{product.inhoud}}</li>
-            <li> {{product.supermarkt}}</li>
-        </ul>
-    </li>
-</ul>
