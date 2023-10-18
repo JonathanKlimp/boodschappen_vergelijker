@@ -1,7 +1,8 @@
 export class Gebruiker {
-    id! : number;
-    gebruikrsnaam! : string;
-    wachtwoord! : string;
-    producten! : [];
+    id?: number;
+    gebruikersnaam!: string;
+    wachtwoord!: string;
+    producten?: [];
+    token?: string;
 
 }
