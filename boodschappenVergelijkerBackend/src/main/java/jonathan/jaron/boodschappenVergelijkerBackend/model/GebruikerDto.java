@@ -2,12 +2,10 @@ package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Gebruiker {
-
+public class GebruikerDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
@@ -17,14 +15,14 @@ public class Gebruiker {
     String wachtwoord;
 
     @OneToMany
-    List<ProductDto> producten = new ArrayList<>();
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    List<ProductDto> producten;
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getGebruikersnaam() {
@@ -50,9 +48,4 @@ public class Gebruiker {
     public void setProducten(List<ProductDto> producten) {
         this.producten = producten;
     }
-
-    public void addProduct(ProductDto productDto) {
-        this.producten.add(productDto);
-    }
 }
-
