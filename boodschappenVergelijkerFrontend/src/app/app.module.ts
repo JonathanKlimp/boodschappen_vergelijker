@@ -22,6 +22,13 @@ import { GebruikerComponent } from './gebruiker/gebruiker.component';
 import { SupermarktComponent } from './result-page/supermarkt/supermarkt.component';
 import { HttpClientModule } from '@angular/common/http'; import { SearchService } from './landing/search/search.service';
 import { MatCard, MatCardModule } from '@angular/material/card';
+import { StoreModule } from '@ngrx/store';
+import { RegistreerComponent } from './registreer/registreer.component';
+import { AuthService } from './store/auth.service';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './store/effects/auth.effects';
+import { authReducer } from './store/reducers/auth.reducers';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +45,7 @@ import { MatCard, MatCardModule } from '@angular/material/card';
     ShoppingListComponent,
     GebruikerComponent,
     SupermarktComponent,
+    RegistreerComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +56,11 @@ import { MatCard, MatCardModule } from '@angular/material/card';
     FormsModule,
     MatButtonModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    StoreModule.forRoot(authReducer),
+    EffectsModule.forRoot([AuthEffects])
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent, SearchComponent, TitleComponent, LogoComponent, LoginComponent, NavbarComponent]
 })
 export class AppModule { }
