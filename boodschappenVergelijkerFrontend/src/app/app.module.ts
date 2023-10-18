@@ -21,6 +21,7 @@ import { ShoppingListComponent } from './result-page/shopping-list/shopping-list
 import { GebruikerComponent } from './gebruiker/gebruiker.component';
 import { SupermarktComponent } from './result-page/supermarkt/supermarkt.component';
 import { HttpClientModule } from '@angular/common/http'; import { SearchService } from './landing/search/search.service';
+import { MatCard, MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { HttpClientModule } from '@angular/common/http'; import { SearchService 
     FormsModule,
     MatButtonModule,
     HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent, SearchComponent, TitleComponent, LogoComponent, LoginComponent]
