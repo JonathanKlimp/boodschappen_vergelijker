@@ -22,6 +22,7 @@ import { GebruikerComponent } from './gebruiker/gebruiker.component';
 import { SupermarktComponent } from './result-page/supermarkt/supermarkt.component';
 import { HttpClientModule } from '@angular/common/http'; import { SearchService } from './landing/search/search.service';
 import { MatCard, MatCardModule } from '@angular/material/card';
+import { StoreModule } from '@ngrx/store';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { MatCard, MatCardModule } from '@angular/material/card';
     FormsModule,
     MatButtonModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent, SearchComponent, TitleComponent, LogoComponent, LoginComponent]
