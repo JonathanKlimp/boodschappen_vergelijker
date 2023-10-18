@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.states';
 
 @Component({
   selector: 'app-login-button',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-button.component.css']
 })
 export class LoginButtonComponent {
+
+
+  constructor(private store: Store<AppState>) { }
 
 }
