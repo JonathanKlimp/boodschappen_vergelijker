@@ -51,6 +51,6 @@ import { MatCard, MatCardModule } from '@angular/material/card';
     MatCardModule
   ],
   providers: [],
-  bootstrap: [AppComponent, SearchComponent, TitleComponent, LogoComponent, LoginComponent]
+  bootstrap: [AppComponent, SearchComponent, TitleComponent, LogoComponent, LoginComponent, NavbarComponent]
 })
 export class AppModule { }
