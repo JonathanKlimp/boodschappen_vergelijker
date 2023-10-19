@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Gebruiker } from '../gebruiker';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from '../store/app.states';
-import { LogIn } from '../store/actions/auth.actions';
 import * as AuthActions from '../store/actions/auth.actions'
+import { Observable } from 'rxjs';
 
 
-/**
-* @title login demo
-*/
 @Component({
   selector: 'login-demo',
   styleUrls: ['./login.component.css'],
@@ -16,26 +13,24 @@ import * as AuthActions from '../store/actions/auth.actions'
 })
 export class LoginComponent implements OnInit {
   gebruiker: Gebruiker = new Gebruiker();
+  logInSuccess!: Observable<string>;
 
-  constructor(
-    private store: Store<AppState>) { }
-
-  ngOnInit() {
-
+  constructor(private store: Store<AppState>) {
+    this.logInSuccess = this.store.pipe(select(state => state.inGelogged));
+    this.logInSuccess.subscribe(log => console.log('State log:' + log))
   }
 
-  // onSubmit(): void {
-  //   const payload = {
-  //     gebruikersnaam: this.gebruiker.gebruikersnaam,
-  //     wachtwoord: this.gebruiker.wachtwoord
-  //   };
-  //   this.store.dispatch(new LogIn(payload))
-  // }
+  ngOnInit() {
+  }
 
   onSubmit(): void {
+
+
     console.log("naam: " + this.gebruiker.gebruikersnaam)
     console.log("ww:" + this.gebruiker.wachtwoord)
     this.store.dispatch(AuthActions.login({ gebruikersnaam: this.gebruiker.gebruikersnaam, wachtwoord: this.gebruiker.wachtwoord }))
+    this.logInSuccess = this.store.pipe(select(state => { console.log(state.inGelogged); return state.inGelogged }));
+    console.log('Dikke success' + this.logInSuccess)
   }
 
 }

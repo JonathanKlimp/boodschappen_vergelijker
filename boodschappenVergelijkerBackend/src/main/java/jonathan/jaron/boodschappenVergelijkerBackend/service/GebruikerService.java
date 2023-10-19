@@ -31,4 +31,14 @@ public class GebruikerService {
 
         return gebruikerRepository.findAll();
     }
+
+    public boolean verifieerGebruiker(String gebruikersnaam, String wachtwoord) {
+        Gebruiker gebruiker = this.gebruikerRepository.findByGebruikersnaam(gebruikersnaam);
+        System.out.println(gebruiker);
+        if(gebruiker != null && gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

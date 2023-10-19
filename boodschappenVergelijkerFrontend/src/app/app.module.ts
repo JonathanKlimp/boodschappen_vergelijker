@@ -27,7 +27,7 @@ import { RegistreerComponent } from './registreer/registreer.component';
 import { AuthService } from './store/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects';
-import { authReducer } from './store/reducers/auth.reducers';
+import { authReducer, authReducers } from './store/reducers/auth.reducers';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,7 @@ import { authReducer } from './store/reducers/auth.reducers';
     MatButtonModule,
     HttpClientModule,
     MatCardModule,
-    StoreModule.forRoot(authReducer),
+    StoreModule.forRoot(authReducers),
     EffectsModule.forRoot([AuthEffects])
   ],
   providers: [AuthService],
