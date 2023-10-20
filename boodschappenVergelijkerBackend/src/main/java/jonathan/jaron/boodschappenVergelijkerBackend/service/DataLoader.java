@@ -35,7 +35,7 @@ public class DataLoader implements CommandLineRunner {
         if (productRepository.count() == 0 || supermarktRepository.count() == 0) {
             processingService.processAndSaveData(new File(JSON_FILE_PATH));
         }
-        //imageGetterService.getImages();
+        imageGetterService.getImages();
     }
 
 //    @Scheduled(initialDelay = 60 * 1000, fixedRate = 3 * 60 * 60 * 1000) // 3 hours

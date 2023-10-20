@@ -19,20 +19,19 @@ public class HtmlService {
 
 
         // Select all <img> elements with the specified class
-//        System.out.println(document);
-//        Elements imgElements = document.select("img.lazy-image_image__o9P+M");
+        System.out.println(document);
+        Elements imgElements = document.select("img.lazy-image_image__o9P+M");
         Element imgElement = document.select("img").get(1);
-//        System.out.println("ruw print: "+ document.select("img"));
-//        System.out.println("class print 1: " + document.select("lazy-image_image__o9P+M"));
-//        System.out.println("class print: " + document.select("img.lazy-image_image__o9P+M"));
-//        System.out.println("imgElements: " + imgElements);
+        System.out.println("ruw print: "+ document.select("img"));
+        System.out.println("class print 1: " + document.select("lazy-image_image__o9P+M"));
+        System.out.println("class print: " + document.select("img.lazy-image_image__o9P+M"));
+        System.out.println("imgElements: " + imgElements);
 
-//        for (Element imgElement : imgElements) {
+        for (Element imgElement2 : imgElements) {
             // Get the "src" attribute of each <img> element
-//        System.out.println(imgElement);
-            return imgElement.attr("src");
-//            imageUrls.add(imageUrl);
-//        }
-//        return "";
+        System.out.println(imgElement2);
+            return imgElement2.attr("src");
+        }
+        return "";
     }
 }
