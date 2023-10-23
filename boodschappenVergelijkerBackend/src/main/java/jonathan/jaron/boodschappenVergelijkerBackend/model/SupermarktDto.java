@@ -1,6 +1,5 @@
 package jonathan.jaron.boodschappenVergelijkerBackend.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonSetter;
@@ -8,8 +7,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity
-@Table(name = "supermarkt")
+
 public class SupermarktDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
