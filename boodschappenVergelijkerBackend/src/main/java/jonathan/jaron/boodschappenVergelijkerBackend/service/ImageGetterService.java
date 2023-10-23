@@ -50,6 +50,8 @@ public class ImageGetterService {
     double last_spar= time_now;
     double last_dirk= time_now;
 
+    int last_coop_id = 30505;
+
 
     double progressAmount = 0.0;
     @Autowired
@@ -547,7 +549,7 @@ public class ImageGetterService {
                     int count = 0;
                     for (ProductDto product : productList) {
                         if (supermarkt.getNaam().equals("coop")) {
-                            if (product.getImageUrl() == null) {
+                            if (product.getImageUrl() == null && product.getId() > last_coop_id) {
                                 try {
                                     Thread.sleep(getRandomNumber(1500, 2500));
                                 } catch (InterruptedException e) {
@@ -692,17 +694,17 @@ public class ImageGetterService {
 
 
         System.out.println("running ah1");
-        ah1.start();
+        //ah1.start();
         System.out.println("running aldi");
-        aldi.start();
+        //aldi.start();
         System.out.println("running dirk");
-        dirk.start();
+        //dirk.start();
         System.out.println("running jumbo");
-        jumbo.start();
+        //jumbo.start();
         System.out.println("running vomar");
-        vomar.start();
+        //vomar.start();
         System.out.println("running spar");
-        spar.start();
+        //spar.start();
         System.out.println("running coop");
         coop.start();
         progress.start();
