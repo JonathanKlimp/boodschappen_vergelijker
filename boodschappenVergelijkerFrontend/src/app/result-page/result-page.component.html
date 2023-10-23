@@ -16,20 +16,9 @@
                     Resultaten
                     <div id="box" #box>
                         <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
-                        <mat-grid-list [cols]="columns" rowHeight="350px" width="100%" (window:resize)="onBoxResize()">
+                        <mat-grid-list [cols]="columns" rowHeight="400px" width="100%" (window:resize)="onBoxResize()">
                             <mat-grid-tile *ngFor="let product of resultaten"
                                 style="background-color: rgb(0, 85, 128); width: 100px;">
-                                <!-- <mat-card>
-                                    <mat-card-header>
-                                       
-                                    </mat-card-header>
-                                    <mat-card-content>
-                                        <a href="{{product.supermarkt.url}} {{product.url}}">Link naar product</a>Url:
-                                        Prijs: {{product.prijs}}
-                                        Url: {{product.url}}
-                                        Inhoud: {{product.inhoud}}
-                                    </mat-card-content>
-                                </mat-card> -->
                                 <mat-card class="example-card">
                                     <mat-card-header>
                                         
@@ -49,7 +38,16 @@
                                             {{product.supermarkt.naam}}
                                         </mat-card-subtitle>
                                     </mat-card-header>
-                                    <img mat-card-image src="./assets/logos/shopping_cart.jpg">
+                                    <div class="d-flex justify-content-center">
+                                        <div *ngIf="product.imageUrl; then thenBlock else elseBlock"></div>
+                                        <ng-template #thenBlock>
+                                            <img mat-card-image src={{product.imageUrl}} width="150px" height="150px">
+                                        </ng-template>
+                                        <ng-template #elseBlock>
+                                            <img mat-card-image src="./assets/logos/shopping_cart.jpg" width="150px"
+                                                height="150px">
+                                        </ng-template>
+                                    </div>
                                     <mat-card-content>
                                         <ul>
                                             <li><a href="{{product.supermarkt.url}} {{product.url}}"
