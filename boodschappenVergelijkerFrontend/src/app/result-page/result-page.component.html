@@ -29,13 +29,13 @@
                                     > <img src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg">
                                     </div>    -->
                                         <div mat-card-avatar>
-                                            <img src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg" alt="Logo">
+                                            <img src="{{product.supermarkt.logo}}" alt="Logo">
                                         </div>
                                         <mat-card-title>
                                             {{product.naam}}
                                         </mat-card-title>
                                         <mat-card-subtitle>
-                                            {{product.supermarkt.naam}}
+                                            {{product.supermarkt.merkNaam}}
                                         </mat-card-subtitle>
                                     </mat-card-header>
                                     <div class="d-flex justify-content-center">
@@ -52,7 +52,7 @@
                                         <ul>
                                             <li><a href="{{product.supermarkt.url}} {{product.url}}"
                                                     target="_blank">Link naar
-                                                    product</a> hekkie</li>
+                                                    product</a></li>
                                             <li>Prijs: {{product.prijs}}</li>
                                             <li>Inhoud: {{product.inhoud}}</li>
                                         </ul>
