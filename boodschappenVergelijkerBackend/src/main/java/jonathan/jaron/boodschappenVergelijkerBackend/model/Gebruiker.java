@@ -54,5 +54,15 @@ public class Gebruiker {
     public void addProduct(ProductDto productDto) {
         this.producten.add(productDto);
     }
+
+    @Override
+    public String toString() {
+        return "Gebruiker{" +
+                "id=" + id +
+                ", gebruikersnaam='" + gebruikersnaam + '\'' +
+                ", wachtwoord='" + wachtwoord + '\'' +
+                ", producten=" + producten +
+                '}';
+    }
 }
 

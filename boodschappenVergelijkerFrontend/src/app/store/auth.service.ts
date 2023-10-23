@@ -15,7 +15,8 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  logIn(gebruikersnaam: string, wachtwoord: string): Observable<any> {
+  logIn(gebruikersnaam: string, wachtwoord: string): Observable<Gebruiker> {
+    console.log('logging in:' + gebruikersnaam + wachtwoord)
     const url = `${this.BASE_URL}/login`;
     return this.http.post<Gebruiker>(url, { gebruikersnaam, wachtwoord });
   }
