@@ -15,6 +15,7 @@
                 <div class="col-md-12">
                     Resultaten
                     <div id="box" #box>
+                        <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
                         <mat-grid-list [cols]="columns" rowHeight="350px" width="100%" (window:resize)="onBoxResize()">
                             <mat-grid-tile *ngFor="let product of resultaten"
                                 style="background-color: rgb(0, 85, 128); width: 100px;">
@@ -31,7 +32,16 @@
                                 </mat-card> -->
                                 <mat-card class="example-card">
                                     <mat-card-header>
-                                        <div mat-card-avatar class="example-header-image"></div>
+                                        
+                                        <!-- <div mat-card-avatar matCardImage 
+                                        class="example-header-image" style="
+                                        background-image: url('https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg');
+                                        background-size: cover"
+                                    > <img src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg">
+                                    </div>    -->
+                                        <div mat-card-avatar>
+                                            <img src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg" alt="Logo">
+                                        </div>
                                         <mat-card-title>
                                             {{product.naam}}
                                         </mat-card-title>
@@ -44,7 +54,7 @@
                                         <ul>
                                             <li><a href="{{product.supermarkt.url}} {{product.url}}"
                                                     target="_blank">Link naar
-                                                    product</a></li>
+                                                    product</a> hekkie</li>
                                             <li>Prijs: {{product.prijs}}</li>
                                             <li>Inhoud: {{product.inhoud}}</li>
                                         </ul>
