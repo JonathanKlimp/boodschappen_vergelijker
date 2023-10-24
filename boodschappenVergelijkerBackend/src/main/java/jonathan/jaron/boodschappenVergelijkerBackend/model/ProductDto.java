@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import jonathan.jaron.boodschappenVergelijkerBackend.tools.ConsoleColors;
 
 @Entity
-@Table(name = "product")
 public class ProductDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

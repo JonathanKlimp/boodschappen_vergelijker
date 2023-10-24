@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity
+
 public class GebruikerDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
