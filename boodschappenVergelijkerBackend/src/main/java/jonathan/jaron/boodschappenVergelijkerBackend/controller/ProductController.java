@@ -24,6 +24,7 @@ public class ProductController {
     @CrossOrigin(origins = "*")
     @PostMapping("/zoek")
     List<Product> findByNaamLike(@RequestBody String naam){
+
         System.out.println(naam);
         // is true maar er word geen illegalargument exception gethrowed??
         // maar er komt wel een 400 bad request als response

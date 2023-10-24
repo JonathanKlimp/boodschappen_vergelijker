@@ -2,12 +2,22 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-12" style="height:100px">
-                    Resultaten voor: {{zoekterm}}
+                <div class="col-md-12" style="height:150px; border:11px outset rgba(28,110,164,0.65)">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <span class="align-middle">
+                                Resultaten voor: {{zoekterm}}
+                            </span>
+                        </div>
+                        <div class="col align-items-center mt-3">
+
+                            <app-search></app-search>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" style="height:100px">
+                <div class="col-md-12" style="height:100px; border:11px outset rgba(28,110,164,0.65)">
                     Sorteer op
                 </div>
             </div>
@@ -18,7 +28,7 @@
                         <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
                         <mat-grid-list [cols]="columns" rowHeight="400px" width="100%" (window:resize)="onBoxResize()">
                             <mat-grid-tile *ngFor="let product of resultaten"
-                                style="background-color: rgb(0, 85, 128); width: 100px;">
+                                style="background-color: rgb(28,110,164,0.65); width: 100px; border:11px">
                                 <mat-card class="example-card">
                                     <mat-card-header>
                                         
@@ -50,16 +60,13 @@
                                     </div>
                                     <mat-card-content>
                                         <ul>
-                                            <li><a href="{{product.supermarkt.url}} {{product.url}}"
-                                                    target="_blank">Link naar
+                                            <li><a href="{{product.supermarkt.url}}{{product.url}}" target="_blank">Link
+                                                    naar
                                                     product</a></li>
                                             <li>Prijs: {{product.prijs}}</li>
                                             <li>Inhoud: {{product.inhoud}}</li>
                                         </ul>
                                     </mat-card-content>
-                                    <mat-card-actions>
-                                        <button mat-button>Toevoegen</button>
-                                    </mat-card-actions>
                                 </mat-card>
                             </mat-grid-tile>
                         </mat-grid-list>

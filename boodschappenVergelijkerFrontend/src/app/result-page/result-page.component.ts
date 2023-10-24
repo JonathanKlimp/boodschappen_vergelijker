@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from '../landing/search/search.service';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './product/product';
@@ -15,7 +15,8 @@ export class ResultPageComponent implements OnInit {
   database_url: string = 'http://localhost:8080/zoek'
   resultaten!: Product[]
 
-  constructor(private route: ActivatedRoute, private ss: SearchService, public http: HttpClient) {
+  constructor(private router: Router, private route: ActivatedRoute, private ss: SearchService, public http: HttpClient) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   columns: number = 4;
@@ -46,5 +47,7 @@ export class ResultPageComponent implements OnInit {
       this.resultaten = data;
     })
   }
+
+
 
 }
