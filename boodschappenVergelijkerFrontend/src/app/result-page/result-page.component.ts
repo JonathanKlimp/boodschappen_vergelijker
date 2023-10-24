@@ -10,6 +10,7 @@ import { Product } from './product/product';
   templateUrl: './result-page.component.html',
   styleUrls: ['./result-page.component.css']
 })
+
 export class ResultPageComponent implements OnInit {
   zoekterm: string = '';
   database_url: string = 'http://localhost:8080/zoek';
@@ -20,9 +21,25 @@ export class ResultPageComponent implements OnInit {
   };
   columns: number = 4;
   showSpinner: boolean = true;
+  winkelsFlags: WinkelsFlags = {};
+  
+  
 
   constructor(private router: Router, private route: ActivatedRoute, private ss: SearchService, public http: HttpClient) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.winkelsFlags['AH'] = false;
+    this.winkelsFlags['ALDI'] = false;
+    this.winkelsFlags['Coop'] = false;
+    this.winkelsFlags['DekaMarkt'] = false;
+    this.winkelsFlags['Dirk'] = false;
+    this.winkelsFlags['Hoogvliet'] = false;
+    this.winkelsFlags['Jan Linders'] = false;
+    this.winkelsFlags['Jumbo'] = false;
+    this.winkelsFlags['Jumbo'] = false;
+    this.winkelsFlags['Picnic'] = false;
+    this.winkelsFlags['PLUS'] = false;
+    this.winkelsFlags['SPAR'] = false;
+    this.winkelsFlags['Vomar'] = false;
   }
 
   @ViewChild('box', { static: false }) box!: ElementRef;
@@ -59,6 +76,19 @@ export class ResultPageComponent implements OnInit {
     });
   }
 
+  unFilterProducts(products: Product[], filters: Filters): Product[] {
+    this.showSpinner = true;
+    return this.resultaten.filter(product => {
+      for(let i=0; i<this.filters.merkNamen!.length; i++) {
+        if (product.supermarkt.merkNaam === this.filters.merkNamen![i]) {
+          
+          return true;
+        } 
+      }
+        return false;
+      });
+    }
+
   onFilter() {
     let filteredProducts: Product[] = this.filterProducts(this.resultaten, this.filters);
     this.resultaten = filteredProducts;
@@ -66,10 +96,21 @@ export class ResultPageComponent implements OnInit {
   }
 
   filterResultaten(merkNaam: string) {
-    console.log("in filter resultaat");
-    console.log(merkNaam);
-    this.filters.merkNamen?.push(merkNaam);
-    this.onFilter();
+    this.winkelsFlags[merkNaam] = !this.winkelsFlags[merkNaam]
+    if (this.winkelsFlags[merkNaam]) {
+      this.filters.merkNamen?.push(merkNaam);
+      this.onFilter();
+    } else {
+      this.unFilter(merkNaam);
+    }
+  }
+
+  unFilter(merkNaam: string) {
+    let index = this.filters.merkNamen!.indexOf(merkNaam);
+    // this.filters.merkNamen?.pop(merkN)
+    this.filters.merkNamen = this.filters.merkNamen!.filter((e, i) => i !== index);
+    let filteredProducts: Product[] = this.filterProducts(this.resultatenCopy, this.filters);
+    this.resultaten = filteredProducts;
   }
 
   getProductWhereNameLike(naam: string) {
@@ -99,4 +140,8 @@ export class ResultPageComponent implements OnInit {
 interface Filters {
   merkNamen?: string[];
   // Add more filter properties as needed
+}
+
+interface WinkelsFlags {
+  [key: string]: boolean;
 }
