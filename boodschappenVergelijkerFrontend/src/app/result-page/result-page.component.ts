@@ -83,6 +83,11 @@ export class ResultPageComponent implements OnInit {
     this.showSpinner= false;
   }
 
+  filterResultaten(merkNaam: string) {
+    this.filters.merkNamen?.push(merkNaam);
+    this.onFilter();
+  }
+
   getProductWhereNameLike(naam: string) {
     return this.http.post<Product[]>(this.database_url, naam).subscribe((data) => {
       this.resultaten = data;
