@@ -253,7 +253,7 @@ public class ImageGetterService {
                                 StringBuffer buffer = new StringBuffer();
                                 while (true) {
                                     try {
-                                        if (!((ptr = is.read()) != -1)) break;
+                                        if ((ptr = is.read()) == -1) break;
                                     } catch (IOException e) {
                                         continue;
                                     }
