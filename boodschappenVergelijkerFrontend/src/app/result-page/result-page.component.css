@@ -137,3 +137,6 @@ a {
     transition: opacity 1s;
  }
 
+.full-width-row {
+    width: 100%;
+}
