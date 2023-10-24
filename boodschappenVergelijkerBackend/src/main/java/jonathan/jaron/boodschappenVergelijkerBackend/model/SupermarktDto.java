@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-
+@Entity
 public class SupermarktDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

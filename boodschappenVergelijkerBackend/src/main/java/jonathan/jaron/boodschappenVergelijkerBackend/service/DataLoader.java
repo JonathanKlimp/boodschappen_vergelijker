@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.IOException;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -31,11 +32,16 @@ public class DataLoader implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-        if (productRepository.count() == 0 || supermarktRepository.count() == 0) {
-            processingService.processAndSaveData(new File(JSON_FILE_PATH));
+    public void run(String... args) throws IOException {
+        try {
+            if (productRepository.count() == 0 || supermarktRepository.count() == 0) {
+                processingService.processAndSaveData(new File(JSON_FILE_PATH));
+            }
+            //imageGetterService.getImages();
+        } catch (IOException e) {
+            throw new IOException("file not found");
         }
-        //imageGetterService.getImages();
+
     }
 
 //    @Scheduled(initialDelay = 60 * 1000, fixedRate = 3 * 60 * 60 * 1000) // 3 hours

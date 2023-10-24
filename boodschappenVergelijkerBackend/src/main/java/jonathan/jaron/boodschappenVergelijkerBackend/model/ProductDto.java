@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import jakarta.persistence.*;
 import jonathan.jaron.boodschappenVergelijkerBackend.tools.ConsoleColors;
 
-
+@Entity
 public class ProductDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
