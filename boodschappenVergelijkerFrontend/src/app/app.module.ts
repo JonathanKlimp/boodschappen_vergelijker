@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatGridListModule } from '@angular/material/grid-list'
 import { AppRoutingModule } from './app-routing.module';
@@ -53,6 +54,7 @@ import { authReducer, authReducers } from './store/reducers/auth.reducers';
     MatGridListModule,
     MatInputModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
     FormsModule,
     MatButtonModule,
     HttpClientModule,
@@ -61,6 +63,6 @@ import { authReducer, authReducers } from './store/reducers/auth.reducers';
     EffectsModule.forRoot([AuthEffects])
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent, SearchComponent, TitleComponent, LogoComponent, LoginComponent, NavbarComponent]
+  bootstrap: [AppComponent, SearchComponent, TitleComponent, LogoComponent, LoginComponent, NavbarComponent, MatProgressSpinnerModule]
 })
 export class AppModule { }

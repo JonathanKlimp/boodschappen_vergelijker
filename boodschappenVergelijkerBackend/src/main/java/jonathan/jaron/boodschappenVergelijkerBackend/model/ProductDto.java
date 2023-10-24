@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import jakarta.persistence.*;
 import jonathan.jaron.boodschappenVergelijkerBackend.tools.ConsoleColors;
-
+@Table(name = "product")
 @Entity
 public class ProductDto {
     @Id

@@ -25,13 +25,15 @@
                 <div class="col-md-12">
                     Resultaten
                     <div id="box" #box>
-                        <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+                        <div style="display: flex; justify-content: center;">
+                            <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+                        </div>
                         <mat-grid-list [cols]="columns" rowHeight="400px" width="100%" (window:resize)="onBoxResize()">
                             <mat-grid-tile *ngFor="let product of resultaten"
                                 style="background-color: rgb(28,110,164,0.65); width: 100px; border:11px">
                                 <mat-card class="example-card">
                                     <mat-card-header>
-                                        
+
                                         <!-- <div mat-card-avatar matCardImage 
                                         class="example-header-image" style="
                                         background-image: url('https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg');
@@ -39,7 +41,8 @@
                                     > <img src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg">
                                     </div>    -->
                                         <div mat-card-avatar>
-                                            <img src="{{product.supermarkt.logo}}" alt="Logo">
+                                            <img src="{{product.supermarkt.logo}}" alt="Logo" width="30px"
+                                                height="30px">
                                         </div>
                                         <mat-card-title>
                                             {{product.naam}}

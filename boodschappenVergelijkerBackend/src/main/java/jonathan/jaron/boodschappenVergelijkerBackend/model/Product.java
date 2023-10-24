@@ -97,6 +97,7 @@ public class Product {
                         "\n\t url=\t\t" + url +
                         "\n\t prijs=\t\t" + prijs +
                         "\n\t inhoud=\t" + inhoud +
+                        "\n\t plaatje URL=\t" + imageUrl +
                         "\n --------------- \n"
                         + ConsoleColors.ANSI_RESET;
 
