@@ -95,6 +95,7 @@ export class ResultPageComponent implements OnInit {
 
   unFilter(merkNaam: string) {
     let index = this.filters.merkNamen!.indexOf(merkNaam);
+
     this.filters.merkNamen = this.filters.merkNamen!.filter((e, i) => i !== index);
     this.resultaten = this.resultatenCopy;
     let filteredProducts: Product[] = this.filterProducts(this.resultaten, this.filters);

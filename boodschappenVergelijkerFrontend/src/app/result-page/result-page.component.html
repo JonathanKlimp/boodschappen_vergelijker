@@ -16,25 +16,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" style="border: 11px outset rgba(28, 110, 164, 0.65); display: flex; justify-content: space-between;">
-                    <form (ngSubmit)="filterResultaten('AH')">
-                        <button mat-raised-button color="primary" type="submit">Geen Albert heijn</button>
-                    </form>
-                    <form (ngSubmit)="sortPrijs()">
-                        <button mat-raised-button color="primary" type="submit">Sorteer op prijs oplopend</button>
-                    </form>
-                    <form (ngSubmit)="sortPrijsAsc()">
-                        <button mat-raised-button color="primary" type="submit">sorteer aflopend</button>
-                    </form>
-                    <form (ngSubmit)="unSort()">
-                        <button mat-raised-button color="primary" type="submit">Reset filter</button>
-                    </form>
-                <div class="col d-flex" style="border:11px outset rgba(28,110,164,0.65)">
-                    <div class="row">
+                <div class="col-md-12" style="border:11px outset rgba(28,110,164,0.65)">
+                    <div class="row full-width-row align-items-center">
                         <div class="col">
-                            <span class="align-middle">
-                                Resultaten voor: {{zoekterm}}
-                            </span>
+                            <form (ngSubmit)="filterResultaten('AH')">
+                                <button mat-raised-button color="primary" type="submit">Geen Albert heijn</button>
+                            </form>
+                            <form (ngSubmit)="sortPrijs()">
+                                <button mat-raised-button color="primary" type="submit">Sorteer op prijs
+                                    oplopend</button>
+                            </form>
+                            <form (ngSubmit)="sortPrijsAsc()">
+                                <button mat-raised-button color="primary" type="submit">sorteer aflopend</button>
+                            </form>
+                            <form (ngSubmit)="unSort()">
+                                <button mat-raised-button color="primary" type="submit">Reset filter</button>
+                            </form>
                         </div>
                         <div class="col">
                             <div class="row">
@@ -44,26 +41,28 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
-
-                                                        <img (click)="filterResultaten('AH')" src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg"
-                                                            alt="logo albert heijn" height="50px" width="50px"/>
-                                                        </a>
-                                                        </div>
+                                                        <img (click)="filterResultaten('AH')"
+                                                            src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg"
+                                                            alt="logo albert heijn" height="50px" width="50px" />
+                                                    </a>
+                                                </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
 
-                                                        <img (click)="filterResultaten('ALDI')" src="https://www.aldi.nl/etc/designs/aldi/web/frontend/aldi/images/favicons/favicon-192x192.png.res/1638343053228/favicon-192x192.png"
-                                                            alt="logo aldi" height="50px" width="50px"/>
-                                                        </a>
+                                                        <img (click)="filterResultaten('ALDI')"
+                                                            src="https://www.aldi.nl/etc/designs/aldi/web/frontend/aldi/images/favicons/favicon-192x192.png.res/1638343053228/favicon-192x192.png"
+                                                            alt="logo aldi" height="50px" width="50px" />
+                                                    </a>
 
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
-                                                        <img (click)="filterResultaten('Coop')" src="https://www.coop.nl/assets/themes/custom/img/logo_apple_180x180.png"
+                                                        <img (click)="filterResultaten('Coop')"
+                                                            src="https://www.coop.nl/assets/themes/custom/img/logo_apple_180x180.png"
                                                             alt="logo coop" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -71,16 +70,18 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('DekaMarkt')" src="https://d3r3h30p75xj6a.cloudfront.net/static-images/deka/web/favicon.svg" alt="logo dekamarkt"
-                                                            height="50px" width="50px">
+                                                        <img (click)="filterResultaten('DekaMarkt')"
+                                                            src="https://d3r3h30p75xj6a.cloudfront.net/static-images/deka/web/favicon.svg"
+                                                            alt="logo dekamarkt" height="50px" width="50px">
                                                     </a>
                                                 </div>
                                             </th>
-                                            
+
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Dirk')" src="https://d3r3h30p75xj6a.cloudfront.net/static-images/dirk/web/app_icon.png"
+                                                        <img (click)="filterResultaten('Dirk')"
+                                                            src="https://d3r3h30p75xj6a.cloudfront.net/static-images/dirk/web/app_icon.png"
                                                             alt="logo dirk" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -88,7 +89,8 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Hoogvliet')" src="https://www.hoogvliet.com/INTERSHOP/static/WFS/org-webshop-Site/-/-/nl_NL/img/smart_banner_icon.png"
+                                                        <img (click)="filterResultaten('Hoogvliet')"
+                                                            src="https://www.hoogvliet.com/INTERSHOP/static/WFS/org-webshop-Site/-/-/nl_NL/img/smart_banner_icon.png"
                                                             alt="logo hoogvliet" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -96,7 +98,8 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Jan Linders')" src="https://www.janlinders.nl/tl_files/images/Persberichten/JL_web_logo_700x200_wk10-2015.jpg"
+                                                        <img (click)="filterResultaten('Jan Linders')"
+                                                            src="https://www.janlinders.nl/tl_files/images/Persberichten/JL_web_logo_700x200_wk10-2015.jpg"
                                                             alt="logo janlinders" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -104,7 +107,8 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Jumbo')" src="https://www.jumbo.com/INTERSHOP/static/WFS/Jumbo-Grocery-Site/-/-/nl_NL/images/favicon.ico"
+                                                        <img (click)="filterResultaten('Jumbo')"
+                                                            src="https://www.jumbo.com/INTERSHOP/static/WFS/Jumbo-Grocery-Site/-/-/nl_NL/images/favicon.ico"
                                                             alt="logo jumbo" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -112,7 +116,8 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Jumbo')" src="https://d2jxuf8ovdiw8x.cloudfront.net/uploads/sites/18/2020/11/logo.svg"
+                                                        <img (click)="filterResultaten('Jumbo')"
+                                                            src="https://d2jxuf8ovdiw8x.cloudfront.net/uploads/sites/18/2020/11/logo.svg"
                                                             alt="logo picnic" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -120,7 +125,8 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('PLUS')" src="https://play-lh.googleusercontent.com/oIetxLUcZLIA_VrAGWmpLrBy6UHs0bAJNESA3IOg2nNGoq4zHSrUbEdj6fDOZk7NaPw"
+                                                        <img (click)="filterResultaten('PLUS')"
+                                                            src="https://play-lh.googleusercontent.com/oIetxLUcZLIA_VrAGWmpLrBy6UHs0bAJNESA3IOg2nNGoq4zHSrUbEdj6fDOZk7NaPw"
                                                             alt="logo plus" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -128,7 +134,8 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('SPAR')" src="https://www.spar.nl/Content/img/favicon/android-icon-192x192.png"
+                                                        <img (click)="filterResultaten('SPAR')"
+                                                            src="https://www.spar.nl/Content/img/favicon/android-icon-192x192.png"
                                                             alt="logo spar" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -136,7 +143,8 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Vomar')" src="https://www.vomar.nl/apple-touch-icon.png"
+                                                        <img (click)="filterResultaten('Vomar')"
+                                                            src="https://www.vomar.nl/apple-touch-icon.png"
                                                             alt="logo vomar" height="50px" width="50px">
                                                     </a>
                                                 </div>
@@ -149,7 +157,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col-md-12">
                     Resultaten
