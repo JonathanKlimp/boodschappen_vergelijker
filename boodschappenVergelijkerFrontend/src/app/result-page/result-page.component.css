@@ -16,3 +16,124 @@ mat-card {
 a {
     cursor: pointer;
 }
+
+.showAh {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideAh {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showAldi {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideAldi {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showCoop {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideCoop {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showDeka {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideDeka {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showDirk {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideDirk {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showHoogvliet {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideHoogvliet {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showDirk {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideDirk {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showJumbo {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideJumbo {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showPicnic {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hidePicnic {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showPlus {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hidePlus {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showSpar {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideSpar {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
+ .showVomar {
+    opacity: 1;
+    transition: opacity 1s;
+ }
+ 
+ .hideVomar {
+    opacity: 0.2;
+    transition: opacity 1s;
+ }
+
