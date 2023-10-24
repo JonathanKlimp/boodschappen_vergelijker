@@ -53,7 +53,7 @@ public class Supermarkt {
         this.merkNaam = merkNaam;
     }
 
-    @JsonSetter("logo")
+    @JsonGetter("logo")
     public String getLogo() {
         return logo;
     }

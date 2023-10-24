@@ -20,6 +20,7 @@ export class ResultPageComponent implements OnInit {
   }
 
   columns: number = 4;
+  showSpinner: boolean = true;
 
   @ViewChild('box', { static: false }) box!: ElementRef;
 
@@ -45,6 +46,10 @@ export class ResultPageComponent implements OnInit {
   getProductWhereNameLike(naam: string) {
     return this.http.post<Product[]>(this.database_url, naam).subscribe((data) => {
       this.resultaten = data;
+      this.showSpinner = false;
+      this.resultaten.forEach(function (value) {
+        console.log('Logo:' + value.supermarkt.logo)
+      });
     })
   }
 

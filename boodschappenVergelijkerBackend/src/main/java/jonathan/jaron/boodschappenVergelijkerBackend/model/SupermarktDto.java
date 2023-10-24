@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import jakarta.persistence.*;
 
 import java.util.List;
-
+@Table(name = "supermarkt")
 @Entity
 public class SupermarktDto {
     @Id
@@ -56,7 +56,7 @@ public class SupermarktDto {
         this.merkNaam = merkNaam;
     }
 
-    @JsonSetter("logo")
+    @JsonGetter("logo")
     public String getLogo() {
         return logo;
     }
