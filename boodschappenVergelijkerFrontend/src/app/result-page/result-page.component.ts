@@ -22,6 +22,19 @@ export class ResultPageComponent implements OnInit {
   columns: number = 4;
   showSpinner: boolean = true;
   winkelsFlags: WinkelsFlags = {};
+  shouldShowAh: boolean = true;
+  shouldShowAldi: boolean = true;
+  shouldShow: boolean = true;
+  shouldShowCoop: boolean = true;
+  shouldShowDeka: boolean = true;
+  shouldShowDirk: boolean = true;
+  shouldShowHoogvliet: boolean = true;
+  shouldShowJan: boolean = true;
+  shouldShowJumbo: boolean = true;
+  shouldShowPlus: boolean = true;
+  shouldShowSpar: boolean = true;
+  shouldShowVomar: boolean = true;
+  shouldShowPicnic: boolean = true;
 
 
 
@@ -123,6 +136,11 @@ export class ResultPageComponent implements OnInit {
 
   unSort() {
     this.resultaten = this.resultatenCopy;
+  }
+
+  opacity(ele: any) {
+    ele.style.opacity = '.5'
+
   }
 }
 

@@ -15,9 +15,13 @@
                     </div>
                 </div>
             </div>
+            
+            
+            
             <div class="row">
                 <div class="col-md-12" style="border:11px outset rgba(28,110,164,0.65)">
                     <div class="row full-width-row align-items-center">
+
                         <div class="col">
                             <form (ngSubmit)="filterResultaten('AH')">
                                 <button mat-raised-button color="primary" type="submit">Geen Albert heijn</button>
@@ -33,6 +37,7 @@
                                 <button mat-raised-button color="primary" type="submit">Reset filter</button>
                             </form>
                         </div>
+
                         <div class="col">
                             <div class="row">
                                 <table class="table">
@@ -41,38 +46,40 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
-                                                        <img (click)="filterResultaten('AH')"
-                                                            src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg"
-                                                            alt="logo albert heijn" height="50px" width="50px" />
-                                                    </a>
-                                                </div>
+
+                                                        <img (click)="filterResultaten('AH')" src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg"
+                                                            alt="logo albert heijn" height="50px" width="50px" (click)="shouldShowAh = !shouldShowAh"
+                                                            [ngClass]="{showAh: shouldShowAh, hideAh: !shouldShowAh}"/>
+                                                            
+                                                        </a>
+                                                        </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
 
-                                                        <img (click)="filterResultaten('ALDI')"
-                                                            src="https://www.aldi.nl/etc/designs/aldi/web/frontend/aldi/images/favicons/favicon-192x192.png.res/1638343053228/favicon-192x192.png"
-                                                            alt="logo aldi" height="50px" width="50px" />
-                                                    </a>
+                                                        <img (click)="filterResultaten('ALDI')" src="https://www.aldi.nl/etc/designs/aldi/web/frontend/aldi/images/favicons/favicon-192x192.png.res/1638343053228/favicon-192x192.png"
+                                                            alt="logo aldi" height="50px" width="50px" (click)="shouldShowAldi = !shouldShowAldi"
+                                                            [ngClass]="{showAldi: shouldShowAldi, hideAldi: !shouldShowAldi}"/>
+                                                        </a>
 
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
-                                                        <img (click)="filterResultaten('Coop')"
-                                                            src="https://www.coop.nl/assets/themes/custom/img/logo_apple_180x180.png"
-                                                            alt="logo coop" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('Coop')" src="https://www.coop.nl/assets/themes/custom/img/logo_apple_180x180.png"
+                                                            alt="logo coop" height="50px" width="50px" (click)="shouldShowCoop = !shouldShowCoop"
+                                                            [ngClass]="{showCoop: shouldShowCoop, hideCoop: !shouldShowCoop}"/>
                                                     </a>
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('DekaMarkt')"
-                                                            src="https://d3r3h30p75xj6a.cloudfront.net/static-images/deka/web/favicon.svg"
-                                                            alt="logo dekamarkt" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('DekaMarkt')" src="https://d3r3h30p75xj6a.cloudfront.net/static-images/deka/web/favicon.svg" alt="logo dekamarkt"
+                                                            height="50px" width="50px" (click)="shouldShowDeka = !shouldShowDeka"
+                                                            [ngClass]="{showDeka: shouldShowDeka, hideDeka: !shouldShowDeka}"/>
                                                     </a>
                                                 </div>
                                             </th>
@@ -80,83 +87,85 @@
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Dirk')"
-                                                            src="https://d3r3h30p75xj6a.cloudfront.net/static-images/dirk/web/app_icon.png"
-                                                            alt="logo dirk" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('Dirk')" src="https://d3r3h30p75xj6a.cloudfront.net/static-images/dirk/web/app_icon.png"
+                                                            alt="logo dirk" height="50px" width="50px" (click)="shouldShowDirk = !shouldShowDirk"
+                                                            [ngClass]="{showDirk: shouldShowDirk, hideDirk: !shouldShowDirk}"/>
+                                                    </a>
+                                                    </div>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <div class="col d-flex">
+                                                            <a>
+                                                        <img (click)="filterResultaten('Hoogvliet')" src="https://www.hoogvliet.com/INTERSHOP/static/WFS/org-webshop-Site/-/-/nl_NL/img/smart_banner_icon.png"
+                                                            alt="logo hoogvliet" height="50px" width="50px" (click)="shouldShow = !shouldShow"
+                                                            [ngClass]="{showHoogvliet: shouldShowHoogvliet, hideHoogvliet: !shouldShow}"/>
                                                     </a>
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Hoogvliet')"
-                                                            src="https://www.hoogvliet.com/INTERSHOP/static/WFS/org-webshop-Site/-/-/nl_NL/img/smart_banner_icon.png"
-                                                            alt="logo hoogvliet" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('Jan Linders')" src="https://www.janlinders.nl/tl_files/images/Persberichten/JL_web_logo_700x200_wk10-2015.jpg"
+                                                            alt="logo janlinders" height="50px" width="50px" (click)="shouldShowDirk = !shouldShowDirk"
+                                                            [ngClass]="{showDirk: shouldShowDirk, hideDirk: !shouldShowDirk}"/>
                                                     </a>
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Jan Linders')"
-                                                            src="https://www.janlinders.nl/tl_files/images/Persberichten/JL_web_logo_700x200_wk10-2015.jpg"
-                                                            alt="logo janlinders" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('Jumbo')" src="https://www.jumbo.com/INTERSHOP/static/WFS/Jumbo-Grocery-Site/-/-/nl_NL/images/favicon.ico"
+                                                            alt="logo jumbo" height="50px" width="50px" (click)="shouldShowJumbo = !shouldShowJumbo"
+                                                            [ngClass]="{showJumbo: shouldShowJumbo, hideJumbo: !shouldShowJumbo}"/>
                                                     </a>
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Jumbo')"
-                                                            src="https://www.jumbo.com/INTERSHOP/static/WFS/Jumbo-Grocery-Site/-/-/nl_NL/images/favicon.ico"
-                                                            alt="logo jumbo" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('Picnic')" src="https://d2jxuf8ovdiw8x.cloudfront.net/uploads/sites/18/2020/11/logo.svg"
+                                                            alt="logo picnic" height="50px" width="50px" (click)="shouldShowPicnic = !shouldShowPicnic"
+                                                            [ngClass]="{showPicnic: shouldShowPicnic, hidePicnic: !shouldShowPicnic}"/>
                                                     </a>
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('Jumbo')"
-                                                            src="https://d2jxuf8ovdiw8x.cloudfront.net/uploads/sites/18/2020/11/logo.svg"
-                                                            alt="logo picnic" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('PLUS')" src="https://play-lh.googleusercontent.com/oIetxLUcZLIA_VrAGWmpLrBy6UHs0bAJNESA3IOg2nNGoq4zHSrUbEdj6fDOZk7NaPw"
+                                                            alt="logo plus" height="50px" width="50px" (click)="shouldShowPlus = !shouldShowPlus"
+                                                            [ngClass]="{showPlus: shouldShowPlus, hidePlus: !shouldShowPlus}"/>
                                                     </a>
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('PLUS')"
-                                                            src="https://play-lh.googleusercontent.com/oIetxLUcZLIA_VrAGWmpLrBy6UHs0bAJNESA3IOg2nNGoq4zHSrUbEdj6fDOZk7NaPw"
-                                                            alt="logo plus" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('SPAR')" src="https://www.spar.nl/Content/img/favicon/android-icon-192x192.png"
+                                                            alt="logo spar" height="50px" width="50px" (click)="shouldShowSpar = !shouldShowSpar"
+                                                            [ngClass]="{showSpar: shouldShowSpar, hideSpar: !shouldShowSpar}"/>
                                                     </a>
                                                 </div>
                                             </th>
                                             <th scope="col">
                                                 <div class="col d-flex">
                                                     <a>
-                                                        <img (click)="filterResultaten('SPAR')"
-                                                            src="https://www.spar.nl/Content/img/favicon/android-icon-192x192.png"
-                                                            alt="logo spar" height="50px" width="50px">
+                                                        <img (click)="filterResultaten('Vomar')" src="https://www.vomar.nl/apple-touch-icon.png"
+                                                            alt="logo vomar" height="50px" width="50px" (click)="shouldShowVomar = !shouldShowVomar"
+                                                            [ngClass]="{showVomar: shouldShowVomar, hideVomar: !shouldShowVomar}"/>
                                                     </a>
-                                                </div>
-                                            </th>
-                                            <th scope="col">
-                                                <div class="col d-flex">
-                                                    <a>
-                                                        <img (click)="filterResultaten('Vomar')"
-                                                            src="https://www.vomar.nl/apple-touch-icon.png"
-                                                            alt="logo vomar" height="50px" width="50px">
-                                                    </a>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                </table>
+                                                    </div>
+                                                </thead>
+                                            </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+
             <div class="row">
                 <div class="col-md-12">
                     Resultaten
@@ -169,13 +178,6 @@
                                 style="background-color: rgb(28,110,164,0.65); width: 100px; border:11px">
                                 <mat-card class="example-card">
                                     <mat-card-header>
-
-                                        <!-- <div mat-card-avatar matCardImage 
-                                        class="example-header-image" style="
-                                        background-image: url('https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg');
-                                        background-size: cover"
-                                    > <img src="https://static.ah.nl/ah-static/images/ah-ui-bridge-components/logo/logo-ah.svg">
-                                    </div>    -->
                                         <div mat-card-avatar>
                                             <img src="{{product.supermarkt.logo}}" alt="Logo" width="30px"
                                                 height="30px">
@@ -210,11 +212,6 @@
                             </mat-grid-tile>
                         </mat-grid-list>
                     </div>
-                    <!-- <mat-grid-list [cols]="columns" rowHeight="100px" width="100%" (window:resize)="onBoxResize()">
-                        <mat-card *ngFor="let product of resultaten">
-                            <mat-card-header>{{product.naam}}</mat-card-header>
-                        </mat-card>
-                    </mat-grid-list> -->
                 </div>
             </div>
         </div>
