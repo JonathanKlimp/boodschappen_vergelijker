@@ -12,3 +12,7 @@ mat-card {
     height: 90%;
     box-sizing: border-box;
 }
+
+a {
+    cursor: pointer;
+}
