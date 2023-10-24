@@ -90,6 +90,12 @@ export class ResultPageComponent implements OnInit {
       this.showSpinner = false;
     })
   }
+
+  sortPrijs() {
+
+    this.resultaten.sort;
+    // products.sort((a: Product, b: Product) => a.price - b.price);
+  }
 }
 
 interface Filters {
