@@ -103,13 +103,14 @@ export class ResultPageComponent implements OnInit {
     } else {
       this.unFilter(merkNaam);
     }
+    this.showSpinner = false;
   }
 
   unFilter(merkNaam: string) {
     let index = this.filters.merkNamen!.indexOf(merkNaam);
     // this.filters.merkNamen?.pop(merkN)
     this.filters.merkNamen = this.filters.merkNamen!.filter((e, i) => i !== index);
-    let filteredProducts: Product[] = this.filterProducts(this.resultatenCopy, this.filters);
+    let filteredProducts: Product[] = this.unFilterProducts(this.resultatenCopy, this.filters);
     this.resultaten = filteredProducts;
   }
 
