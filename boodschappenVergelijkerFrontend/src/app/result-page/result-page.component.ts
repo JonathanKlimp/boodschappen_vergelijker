@@ -92,8 +92,7 @@ export class ResultPageComponent implements OnInit {
   }
 
   sortPrijs() {
-
-    this.resultaten.sort;
+    this.resultaten.sort((a: Product, b: Product) => a.prijs - b.prijs);
     // products.sort((a: Product, b: Product) => a.price - b.price);
   }
 }
