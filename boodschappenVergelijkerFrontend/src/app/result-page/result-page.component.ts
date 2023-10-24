@@ -16,7 +16,7 @@ export class ResultPageComponent implements OnInit {
   resultaten!: Product[];
   resultatenCopy!: Product[];
   filters: Filters = {
-    merkNamen: ['AH'], 
+    merkNamen: ['AH'],
   };
   columns: number = 4;
   showSpinner: boolean = true;
@@ -48,7 +48,7 @@ export class ResultPageComponent implements OnInit {
 
   // Sample array of products
 
-// Define filters
+  // Define filters
 
 // Function to filter products based on the provided filters
  filterProducts(products: Product[], filters: Filters): Product[] {
@@ -69,12 +69,12 @@ export class ResultPageComponent implements OnInit {
       console.log("true")
       console.log(product.supermarkt.merkNaam);
       // return true;
-    
-    // Add more filters as needed
-    // If the product passes all filters, include it in the result
-    return true;
-  });
-}
+
+      // Add more filters as needed
+      // If the product passes all filters, include it in the result
+      return true;
+    });
+  }
 
   onFilter() {
     let filteredProducts: Product[] = this.filterProducts(this.resultaten, this.filters);
