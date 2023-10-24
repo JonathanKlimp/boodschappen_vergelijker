@@ -16,3 +16,7 @@ mat-card {
 a {
     cursor: pointer;
 }
+
+.full-width-row {
+    width: 100%;
+}
