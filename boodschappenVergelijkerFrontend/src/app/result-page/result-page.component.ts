@@ -22,8 +22,8 @@ export class ResultPageComponent implements OnInit {
   columns: number = 4;
   showSpinner: boolean = true;
   winkelsFlags: WinkelsFlags = {};
-  
-  
+
+
 
   constructor(private router: Router, private route: ActivatedRoute, private ss: SearchService, public http: HttpClient) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -63,36 +63,23 @@ export class ResultPageComponent implements OnInit {
   }
 
 
- filterProducts(products: Product[], filters: Filters): Product[] {
-  this.showSpinner = true;
-  return this.resultaten.filter(product => {
-    for(let i=0; i<this.filters.merkNamen!.length; i++) {
-      if (product.supermarkt.merkNaam === this.filters.merkNamen![i]) {
-        
-        return false;
-      } 
-    }
+  filterProducts(products: Product[], filters: Filters): Product[] {
+    this.showSpinner = true;
+    return this.resultaten.filter(product => {
+      for (let i = 0; i < this.filters.merkNamen!.length; i++) {
+        if (product.supermarkt.merkNaam === this.filters.merkNamen![i]) {
+
+          return false;
+        }
+      }
       return true;
     });
   }
 
-  unFilterProducts(products: Product[], filters: Filters): Product[] {
-    this.showSpinner = true;
-    return this.resultaten.filter(product => {
-      for(let i=0; i<this.filters.merkNamen!.length; i++) {
-        if (product.supermarkt.merkNaam === this.filters.merkNamen![i]) {
-          
-          return true;
-        } 
-      }
-        return false;
-      });
-    }
-
   onFilter() {
     let filteredProducts: Product[] = this.filterProducts(this.resultaten, this.filters);
     this.resultaten = filteredProducts;
-    this.showSpinner= false;
+    this.showSpinner = false;
   }
 
   filterResultaten(merkNaam: string) {
@@ -108,9 +95,9 @@ export class ResultPageComponent implements OnInit {
 
   unFilter(merkNaam: string) {
     let index = this.filters.merkNamen!.indexOf(merkNaam);
-    // this.filters.merkNamen?.pop(merkN)
     this.filters.merkNamen = this.filters.merkNamen!.filter((e, i) => i !== index);
-    let filteredProducts: Product[] = this.unFilterProducts(this.resultatenCopy, this.filters);
+    this.resultaten = this.resultatenCopy;
+    let filteredProducts: Product[] = this.filterProducts(this.resultaten, this.filters);
     this.resultaten = filteredProducts;
   }
 
@@ -129,7 +116,7 @@ export class ResultPageComponent implements OnInit {
     // products.sort((a: Product, b: Product) => a.price - b.price);
   }
 
-  sortPrijsAsc() { 
+  sortPrijsAsc() {
     this.resultaten.sort((a: Product, b: Product) => b.prijs - a.prijs);
   }
 
