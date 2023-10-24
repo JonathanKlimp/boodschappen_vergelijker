@@ -25,6 +25,10 @@
                 <div class="col-md-12">
                     Resultaten
                     <div id="box" #box>
+                        <form (ngSubmit)="onFilter()">
+                            <button type="submit">Test</button>
+
+                        </form>
                         <div style="display: flex; justify-content: center;">
                             <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
                         </div>
