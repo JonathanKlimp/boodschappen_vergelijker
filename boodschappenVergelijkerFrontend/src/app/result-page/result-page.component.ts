@@ -16,9 +16,9 @@ export class ResultPageComponent implements OnInit {
   resultaten!: Product[];
   resultatenCopy!: Product[];
   filters: Filters = {
-    merkNamen: ['AH'], 
+    merkNamen: ['AH'],
   };
-  
+
 
   constructor(private router: Router, private route: ActivatedRoute, private ss: SearchService, public http: HttpClient) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -50,32 +50,32 @@ export class ResultPageComponent implements OnInit {
 
   // Sample array of products
 
-// Define filters
+  // Define filters
 
-// Function to filter products based on the provided filters
- filterProducts(products: Product[], filters: Filters): Product[] {
-  return this.resultaten.filter(product => {
-    // Apply filters
-    for(let i=0; i<this.filters.merkNamen!.length; i++) {
-      console.log("merknaam: " + this.filters.merkNamen![i]);
-      if (product.supermarkt.merkNaam === this.filters.merkNamen![i]) {
-        console.log("LOGG")
-        console.log(this.filters.merkNamen![i]);
-        console.log(product.supermarkt.merkNaam);
-        console.log(product.naam)
-        
-        return false;
-      } 
-    }
+  // Function to filter products based on the provided filters
+  filterProducts(products: Product[], filters: Filters): Product[] {
+    return this.resultaten.filter(product => {
+      // Apply filters
+      for (let i = 0; i < this.filters.merkNamen!.length; i++) {
+        console.log("merknaam: " + this.filters.merkNamen![i]);
+        if (product.supermarkt.merkNaam === this.filters.merkNamen![i]) {
+          console.log("LOGG")
+          console.log(this.filters.merkNamen![i]);
+          console.log(product.supermarkt.merkNaam);
+          console.log(product.naam)
+
+          return false;
+        }
+      }
       console.log("true")
       console.log(product.supermarkt.merkNaam);
       // return true;
-    
-    // Add more filters as needed
-    // If the product passes all filters, include it in the result
-    return true;
-  });
-}
+
+      // Add more filters as needed
+      // If the product passes all filters, include it in the result
+      return true;
+    });
+  }
 
   onFilter() {
     let filteredProducts: Product[] = this.filterProducts(this.resultaten, this.filters);
