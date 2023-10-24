@@ -22,8 +22,9 @@ public class ProductController {
     @PostMapping("/zoek")
     List<Product> findByNaamLike(@RequestBody String naam){
         List<ProductDto> resultDto = productRepository.findProductByNaam("%"+naam+"%");
+        System.out.println(resultDto);
         List<Product> result = productService.mapToProduct(resultDto);
-        System.out.println(result);
+        //System.out.println(result);
         return result;
     }
 }
