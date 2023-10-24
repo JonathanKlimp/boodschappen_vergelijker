@@ -16,23 +16,20 @@ export class ResultPageComponent implements OnInit {
   resultaten!: Product[];
   resultatenCopy!: Product[];
   filters: Filters = {
-    merkNamen: ['AH'],
+    merkNamen: [],
   };
-
+  columns: number = 4;
+  showSpinner: boolean = true;
 
   constructor(private router: Router, private route: ActivatedRoute, private ss: SearchService, public http: HttpClient) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
-
-  columns: number = 4;
-  showSpinner: boolean = true;
 
   @ViewChild('box', { static: false }) box!: ElementRef;
 
 
   onBoxResize() {
     if (this.box) {
-      console.log(this.box.nativeElement.clientWidth)
       let n = Math.floor(this.box.nativeElement.clientWidth / 300);
       this.columns = (n > 0 ? n : 1);
     } else {
@@ -48,39 +45,31 @@ export class ResultPageComponent implements OnInit {
     }
   }
 
-  // Sample array of products
 
-  // Define filters
-
-  // Function to filter products based on the provided filters
-  filterProducts(products: Product[], filters: Filters): Product[] {
-    return this.resultaten.filter(product => {
-      // Apply filters
-      for (let i = 0; i < this.filters.merkNamen!.length; i++) {
-        console.log("merknaam: " + this.filters.merkNamen![i]);
-        if (product.supermarkt.merkNaam === this.filters.merkNamen![i]) {
-          console.log("LOGG")
-          console.log(this.filters.merkNamen![i]);
-          console.log(product.supermarkt.merkNaam);
-          console.log(product.naam)
-
-          return false;
-        }
-      }
-      console.log("true")
-      console.log(product.supermarkt.merkNaam);
-      // return true;
-
-      // Add more filters as needed
-      // If the product passes all filters, include it in the result
+ filterProducts(products: Product[], filters: Filters): Product[] {
+  this.showSpinner = true;
+  return this.resultaten.filter(product => {
+    for(let i=0; i<this.filters.merkNamen!.length; i++) {
+      if (product.supermarkt.merkNaam === this.filters.merkNamen![i]) {
+        
+        return false;
+      } 
+    }
       return true;
     });
   }
 
   onFilter() {
     let filteredProducts: Product[] = this.filterProducts(this.resultaten, this.filters);
-    console.log(filteredProducts);
     this.resultaten = filteredProducts;
+    this.showSpinner= false;
+  }
+
+  filterResultaten(merkNaam: string) {
+    console.log("in filter resultaat");
+    console.log(merkNaam);
+    this.filters.merkNamen?.push(merkNaam);
+    this.onFilter();
   }
 
   getProductWhereNameLike(naam: string) {
@@ -92,8 +81,18 @@ export class ResultPageComponent implements OnInit {
   }
 
   sortPrijs() {
+    this.showSpinner = true;
     this.resultaten.sort((a: Product, b: Product) => a.prijs - b.prijs);
+    this.showSpinner = false;
     // products.sort((a: Product, b: Product) => a.price - b.price);
+  }
+
+  sortPrijsAsc() { 
+    this.resultaten.sort((a: Product, b: Product) => b.prijs - a.prijs);
+  }
+
+  unSort() {
+    this.resultaten = this.resultatenCopy;
   }
 }
 
