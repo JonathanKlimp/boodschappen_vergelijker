@@ -29,6 +29,10 @@
                             <button type="submit">Test</button>
 
                         </form>
+                        <form (ngSubmit)="sortPrijs()">
+                            <button type="submit">Sorteer</button>
+
+                        </form>
                         <div style="display: flex; justify-content: center;">
                             <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
                         </div>
