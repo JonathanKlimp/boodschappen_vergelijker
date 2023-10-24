@@ -18,14 +18,12 @@ export class ResultPageComponent implements OnInit {
   filters: Filters = {
     merkNamen: ['AH'], 
   };
-  
+  columns: number = 4;
+  showSpinner: boolean = true;
 
   constructor(private router: Router, private route: ActivatedRoute, private ss: SearchService, public http: HttpClient) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
-
-  columns: number = 4;
-  showSpinner: boolean = true;
 
   @ViewChild('box', { static: false }) box!: ElementRef;
 
@@ -54,6 +52,7 @@ export class ResultPageComponent implements OnInit {
 
 // Function to filter products based on the provided filters
  filterProducts(products: Product[], filters: Filters): Product[] {
+  this.showSpinner = true;
   return this.resultaten.filter(product => {
     // Apply filters
     for(let i=0; i<this.filters.merkNamen!.length; i++) {
@@ -81,6 +80,7 @@ export class ResultPageComponent implements OnInit {
     let filteredProducts: Product[] = this.filterProducts(this.resultaten, this.filters);
     console.log(filteredProducts);
     this.resultaten = filteredProducts;
+    this.showSpinner= false;
   }
 
   getProductWhereNameLike(naam: string) {
@@ -92,8 +92,18 @@ export class ResultPageComponent implements OnInit {
   }
 
   sortPrijs() {
+    this.showSpinner = true;
     this.resultaten.sort((a: Product, b: Product) => a.prijs - b.prijs);
+    this.showSpinner = false;
     // products.sort((a: Product, b: Product) => a.price - b.price);
+  }
+
+  sortPrijsAsc() { 
+    this.resultaten.sort((a: Product, b: Product) => b.prijs - a.prijs);
+  }
+
+  unSort() {
+    this.resultaten = this.resultatenCopy;
   }
 }
 
