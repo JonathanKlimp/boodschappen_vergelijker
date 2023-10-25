@@ -15,17 +15,11 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
             <div class="row">
                 <div class="col-md-12" style="border:11px outset rgba(28,110,164,0.65)">
                     <div class="row full-width-row align-items-center">
 
                         <div class="col">
-                            <form (ngSubmit)="filterResultaten('AH')">
-                                <button mat-raised-button color="primary" type="submit">Geen Albert heijn</button>
-                            </form>
                             <form (ngSubmit)="sortPrijs()">
                                 <button mat-raised-button color="primary" type="submit">Sorteer op prijs
                                     oplopend</button>
@@ -97,8 +91,8 @@
                                                         <div class="col d-flex">
                                                             <a>
                                                         <img (click)="filterResultaten('Hoogvliet')" src="https://www.hoogvliet.com/INTERSHOP/static/WFS/org-webshop-Site/-/-/nl_NL/img/smart_banner_icon.png"
-                                                            alt="logo hoogvliet" height="50px" width="50px" (click)="shouldShow = !shouldShow"
-                                                            [ngClass]="{showHoogvliet: shouldShowHoogvliet, hideHoogvliet: !shouldShow}"/>
+                                                            alt="logo hoogvliet" height="50px" width="50px" (click)="shouldShowHoogvliet = !shouldShowHoogvliet"
+                                                            [ngClass]="{showHoogvliet: shouldShowHoogvliet, hideHoogvliet: !shouldShowHoogvliet}"/>
                                                     </a>
                                                 </div>
                                             </th>

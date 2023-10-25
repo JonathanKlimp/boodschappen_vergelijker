@@ -24,7 +24,6 @@ export class ResultPageComponent implements OnInit {
   winkelsFlags: WinkelsFlags = {};
   shouldShowAh: boolean = true;
   shouldShowAldi: boolean = true;
-  shouldShow: boolean = true;
   shouldShowCoop: boolean = true;
   shouldShowDeka: boolean = true;
   shouldShowDirk: boolean = true;
@@ -136,11 +135,38 @@ export class ResultPageComponent implements OnInit {
 
   unSort() {
     this.resultaten = this.resultatenCopy;
+    this.shouldShowAh = true;
+    this.shouldShowAldi = true;
+    this.shouldShowCoop= true;
+    this.shouldShowDeka = true;
+    this.shouldShowDirk = true;
+    this.shouldShowHoogvliet = true;
+    this.shouldShowJan = true;
+    this.shouldShowJumbo = true;
+    this.shouldShowPlus = true;
+    this.shouldShowSpar = true;
+    this.shouldShowVomar = true;
+    this.shouldShowPicnic = true;
+    this.filters = {
+      merkNamen: [],
+    };
+    this.winkelsFlags['AH'] = false;
+    this.winkelsFlags['ALDI'] = false;
+    this.winkelsFlags['Coop'] = false;
+    this.winkelsFlags['DekaMarkt'] = false;
+    this.winkelsFlags['Dirk'] = false;
+    this.winkelsFlags['Hoogvliet'] = false;
+    this.winkelsFlags['Jan Linders'] = false;
+    this.winkelsFlags['Jumbo'] = false;
+    this.winkelsFlags['Jumbo'] = false;
+    this.winkelsFlags['Picnic'] = false;
+    this.winkelsFlags['PLUS'] = false;
+    this.winkelsFlags['SPAR'] = false;
+    this.winkelsFlags['Vomar'] = false;
   }
 
   opacity(ele: any) {
     ele.style.opacity = '.5'
-
   }
 }
 
