@@ -341,3 +341,13 @@ h1 {
 .test-tile {
    transition: transform 0.3s ease; /* Add a transition to the transform property */
 }
+
+/* CSS */
+@keyframes spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+}
+
+.spin-image {
+   animation: spin 1s linear infinite; /* Adjust animation duration as needed */
+}
