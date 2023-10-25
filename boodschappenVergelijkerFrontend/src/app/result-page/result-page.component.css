@@ -93,12 +93,12 @@ a {
    transition: opacity 1s;
 }
 
-.showDirk {
+.showJan {
    opacity: 1;
    transition: opacity 1s;
 }
 
-.hideDirk {
+.hideJan {
    opacity: 0.2;
    transition: opacity 1s;
 }
