@@ -115,8 +115,8 @@
                                                         <img (click)="filterResultaten('Jan Linders')"
                                                             src="https://www.janlinders.nl/tl_files/images/Persberichten/JL_web_logo_700x200_wk10-2015.jpg"
                                                             alt="logo janlinders" height="50px" width="50px"
-                                                            (click)="shouldShowDirk = !shouldShowDirk"
-                                                            [ngClass]="{showDirk: shouldShowDirk, hideDirk: !shouldShowDirk}" />
+                                                            (click)="shouldShowJan = !shouldShowJan"
+                                                            [ngClass]="{showJan: shouldShowJan, hideJan: !shouldShowJan}" />
                                                     </a>
                                                 </div>
                                             </th>
@@ -189,9 +189,13 @@
                 style="position: relative; z-index: 1; background-color: rgb(74, 151, 202); border:11px outset rgba(28,110,164,0.65)">
                 <div class="col-md-12">
                     <div id="box" #box>
-                        <div style="display: flex; justify-content: center; padding-top: 10%;" *ngIf="showSpinner">
+                        <!-- <div style="display: flex; justify-content: center; padding-top: 10%;" *ngIf="showSpinner">
                             <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+                        </div> -->
+                        <div style="display: flex; justify-content: center; padding-top: 10%;" *ngIf="showSpinner">
+                            <img src="./assets/logos/shopping_cart.png" alt="Loading Spinner" class="spin-image">
                         </div>
+                        
                         <mat-grid-list [cols]="columns" rowHeight="400px" width="100%" (window:resize)="onBoxResize()">
                             <mat-grid-tile *ngFor="let product of resultaten" class="test-tile"
                                 style="background-color: rgb(74, 151, 202); width: 100px; border:11px">
