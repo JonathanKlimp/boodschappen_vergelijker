@@ -333,3 +333,11 @@ h1 {
       --size: 6rem;
    }
 }
+
+.test-tile:hover {
+   transform: scale(1.03);
+}
+
+.test-tile {
+   transition: transform 0.3s ease; /* Add a transition to the transform property */
+}
