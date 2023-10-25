@@ -193,7 +193,7 @@
                             <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
                         </div>
                         <mat-grid-list [cols]="columns" rowHeight="400px" width="100%" (window:resize)="onBoxResize()">
-                            <mat-grid-tile *ngFor="let product of resultaten"
+                            <mat-grid-tile *ngFor="let product of resultaten" class="test-tile"
                                 style="background-color: rgb(74, 151, 202); width: 100px; border:11px">
                                 <mat-card class="example-card">
                                     <mat-card-header>
