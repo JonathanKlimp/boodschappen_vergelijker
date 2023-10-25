@@ -11,7 +11,7 @@
                                 </div>
                                 <form (ngSubmit)="onSubmit()">
                                     <div>
-                                        <h1 class="p-3">{{logInSuccess}}</h1>
+                                        <h1 class="p-3">Login</h1>
                                     </div>
                                     <div class="form-outline mb-4 mt-3">
                                         <mat-form-field class="example-full-width">
@@ -37,7 +37,8 @@
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Nog geen account?</p>
-                                        <button type="button" class="btn btn-outline-danger" [routerLink]="['/registreer']">Registreer!</button>
+                                        <button type="button" class="btn btn-outline-danger"
+                                            [routerLink]="['/registreer']">Registreer!</button>
                                     </div>
                                 </form>
 
