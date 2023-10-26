@@ -33,12 +33,18 @@
                             </form>
                         </div>
 
+                        <style>
+                            .th {
+                                background-color: rgb(74, 151, 202) !important;
+                            }
+                        </style>
+
                         <div class="col">
                             <div class="row" style="padding-top: 15px;">
                                 <table class="table" style="padding-top: 15px;">
                                     <thead>
                                         <tr>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
 
@@ -51,7 +57,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
 
@@ -64,7 +70,7 @@
 
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a style="cursor: pointer;">
                                                         <img (click)="filterResultaten('Coop')"
@@ -75,7 +81,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('DekaMarkt')"
@@ -87,7 +93,7 @@
                                                 </div>
                                             </th>
 
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('Dirk')"
@@ -98,7 +104,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('Hoogvliet')"
@@ -109,7 +115,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('Jan Linders')"
@@ -120,7 +126,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('Jumbo')"
@@ -131,7 +137,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('Picnic')"
@@ -142,7 +148,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('PLUS')"
@@ -153,7 +159,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('SPAR')"
@@ -164,7 +170,7 @@
                                                     </a>
                                                 </div>
                                             </th>
-                                            <th scope="col">
+                                            <th class="th" scope="col">
                                                 <div class="col d-flex">
                                                     <a>
                                                         <img (click)="filterResultaten('Vomar')"
@@ -195,7 +201,7 @@
                         <div style="display: flex; justify-content: center; padding-top: 10%;" *ngIf="showSpinner">
                             <img src="./assets/logos/shopping_cart.png" alt="Loading Spinner" class="spin-image">
                         </div>
-                        
+
                         <mat-grid-list [cols]="columns" rowHeight="400px" width="100%" (window:resize)="onBoxResize()">
                             <mat-grid-tile *ngFor="let product of resultaten" class="test-tile"
                                 style="background-color: rgb(74, 151, 202); width: 100px; border:11px">
@@ -222,11 +228,10 @@
                                                 height="150px">
                                         </ng-template>
                                     </div>
-                                    <mat-card-content>
+                                    <mat-card-content class="product-details">
                                         <ul>
                                             <li><a href="{{product.supermarkt.url}}{{product.url}}" target="_blank">Link
-                                                    naar
-                                                    product</a></li>
+                                                    naar product</a></li>
                                             <li>Prijs: {{product.prijs}}</li>
                                             <li>Inhoud: {{product.inhoud}}</li>
                                         </ul>
