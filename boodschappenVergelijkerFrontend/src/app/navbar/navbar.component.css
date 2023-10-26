@@ -1,0 +1,31 @@
+.my-button {
+    background-color: #93c3e3;
+    /* Default button color */
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.my-button:hover {
+    background-color: #2980b9;
+    /* Button color on hover */
+    transform: scale(1.05);
+    /* Scale up on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    /* Add a slight shadow on hover */
+}
+
+.my-button:active {
+    background-color: #2471a3;
+    /* Button color when clicked */
+    transform: scale(1);
+    /* Reset scale on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Add a slight shadow when clicked */
+}
